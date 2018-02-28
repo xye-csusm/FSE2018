@@ -1,0 +1,2858 @@
+%%% ====================================================================
+%%%  BibTeX-file{
+%%%     author          = "Gerry Murray",
+%%%     version         = "1.2",
+%%%     date            = "2 April 2012",
+%%%     filename        = "acmsmall-sample-bibfile.bib",
+%%%     address         = "ACM, NY",
+%%%     email           = "murray at hq.acm.org",
+%%%     codetable       = "ISO/ASCII",
+%%%     keywords        = "ACM Reference Format, bibliography, citation, references",
+%%%     supported       = "yes",
+%%%     docstring       = "This BibTeX database file contains 'bibdata' entries
+%%%                        that 'match' the examples provided in the Specifications Document
+%%%                        AND, also, 'legacy'-type bibs. It should assist authors in
+%%%                        choosing the 'correct' at-bibtype and necessary bib-fields
+%%%                        so as to obtain the appropriate ACM Reference Format output.
+%%%                        It also contains many 'Standard Abbreviations'. "
+%%%  }
+%%% ====================================================================
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+%Below are from FSE 2018
+@inproceedings{Gal:2016:TGA:3157096.3157211,
+ author = {Gal, Yarin and Ghahramani, Zoubin},
+ title = {A Theoretically Grounded Application of Dropout in Recurrent Neural Networks},
+ booktitle = {Proceedings of the 30th International Conference on Neural Information Processing Systems},
+ series = {NIPS'16},
+ year = {2016},
+ isbn = {978-1-5108-3881-9},
+ location = {Barcelona, Spain},
+ pages = {1027--1035},
+ numpages = {9},
+ url = {http://dl.acm.org/citation.cfm?id=3157096.3157211},
+ acmid = {3157211},
+ publisher = {Curran Associates Inc.},
+ address = {USA},
+}
+
+@article{Srivastava:2014:DSW:2627435.2670313,
+ author = {Srivastava, Nitish and Hinton, Geoffrey and Krizhevsky, Alex and Sutskever, Ilya and Salakhutdinov, Ruslan},
+ title = {Dropout: A Simple Way to Prevent Neural Networks from Overfitting},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {January 2014},
+ volume = {15},
+ number = {1},
+ month = jan,
+ year = {2014},
+ issn = {1532-4435},
+ pages = {1929--1958},
+ numpages = {30},
+ url = {http://dl.acm.org/citation.cfm?id=2627435.2670313},
+ acmid = {2670313},
+ publisher = {JMLR.org},
+ keywords = {deep learning, model combination, neural networks, regularization},
+}
+
+@inproceedings{DBLP:journals/jmlr/GlorotB10,
+  author    = {Xavier Glorot and
+               Yoshua Bengio},
+  title     = {Understanding the difficulty of training deep feedforward neural networks},
+  booktitle = {Proceedings of the Thirteenth International Conference on Artificial
+               Intelligence and Statistics, {AISTATS} 2010, Chia Laguna Resort, Sardinia,
+               Italy, May 13-15, 2010},
+  pages     = {249--256},
+  year      = {2010},
+  crossref  = {DBLP:conf/aistats/2010},
+  url       = {http://www.jmlr.org/proceedings/papers/v9/glorot10a.html},
+  timestamp = {Thu, 11 Sep 2014 07:28:56 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/jmlr/GlorotB10},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+%Below are from 2017 CRII
+
+@article{Jarvelin:2002:CGE:582415.582418,
+ author = {J\"{a}rvelin, Kalervo and Kek\"{a}l\"{a}inen, Jaana},
+ title = {Cumulated Gain-based Evaluation of IR Techniques},
+ journal = {ACM Trans. Inf. Syst.},
+ issue_date = {October 2002},
+ volume = {20},
+ number = {4},
+ month = oct,
+ year = {2002},
+ issn = {1046-8188},
+ pages = {422--446},
+ numpages = {25},
+ url = {http://doi.acm.org/10.1145/582415.582418},
+ doi = {10.1145/582415.582418},
+ acmid = {582418},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Graded relevance judgments, cumulated gain},
+}
+
+@misc{unity,
+  title = {Unity - Game Engine},
+  howpublished = {\url{https://unity3d.com/}},
+  note = {Accessed: 2017-08-07}
+}
+
+@article{Hochreiter:1997:LSM:1246443.1246450,
+ author = {Hochreiter, Sepp and Schmidhuber, J\"{u}rgen},
+ title = {Long Short-Term Memory},
+ journal = {Neural Comput.},
+ issue_date = {November 15, 1997},
+ volume = {9},
+ number = {8},
+ month = nov,
+ year = {1997},
+ issn = {0899-7667},
+ pages = {1735--1780},
+ numpages = {46},
+ url = {http://dx.doi.org/10.1162/neco.1997.9.8.1735},
+ doi = {10.1162/neco.1997.9.8.1735},
+ acmid = {1246450},
+ publisher = {MIT Press},
+ address = {Cambridge, MA, USA},
+}
+
+@book{Goodfellow-et-al-2016,
+    title={Deep Learning},
+    author={Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+    publisher={MIT Press},
+    note={\url{http://www.deeplearningbook.org}},
+    year={2016}
+}
+
+@article{journals/corr/ZarembaSV14,
+  added-at = {2014-10-01T00:00:00.000+0200},
+  author = {Zaremba, Wojciech and Sutskever, Ilya and Vinyals, Oriol},
+  biburl = {https://www.bibsonomy.org/bibtex/2be2c5723ca406cfb8ced1b4f729ba92a/dblp},
+  ee = {http://arxiv.org/abs/1409.2329},
+  interhash = {4ae558af0d3b3ded8991be5d122c4afa},
+  intrahash = {be2c5723ca406cfb8ced1b4f729ba92a},
+  journal = {CoRR},
+  keywords = {dblp},
+  timestamp = {2015-06-18T03:59:34.000+0200},
+  title = {Recurrent Neural Network Regularization.},
+  url = {http://dblp.uni-trier.de/db/journals/corr/corr1409.html#ZarembaSV14},
+  volume = {abs/1409.2329},
+  year = 2014
+}
+
+@article{Mills:2017:PQQ:3092955.3078841,
+ author = {Mills, Chris and Bavota, Gabriele and Haiduc, Sonia and Oliveto, Rocco and Marcus, Andrian and Lucia, Andrea De},
+ title = {Predicting Query Quality for Applications of Text Retrieval to Software Engineering Tasks},
+ journal = {ACM Trans. Softw. Eng. Methodol.},
+ issue_date = {July 2017},
+ volume = {26},
+ number = {1},
+ month = may,
+ year = {2017},
+ issn = {1049-331X},
+ pages = {3:1--3:45},
+ articleno = {3},
+ numpages = {45},
+ url = {http://doi.acm.org/10.1145/3078841},
+ doi = {10.1145/3078841},
+ acmid = {3078841},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Text retrieval, artifact traceability, concept location},
+}
+
+@inproceedings{Huo:2016:LUF:3060832.3060845,
+ author = {Huo, Xuan and Li, Ming and Zhou, Zhi-Hua},
+ title = {Learning Unified Features from Natural and Programming Languages for Locating Buggy Source Code},
+ booktitle = {Proceedings of the Twenty-Fifth International Joint Conference on Artificial Intelligence},
+ series = {IJCAI'16},
+ year = {2016},
+ isbn = {978-1-57735-770-4},
+ location = {New York, New York, USA},
+ pages = {1606--1612},
+ numpages = {7},
+ url = {http://dl.acm.org/citation.cfm?id=3060832.3060845},
+ acmid = {3060845},
+ publisher = {AAAI Press},
+}
+
+@article{LeCun:1989:BAH:1351079.1351090,
+author = {LeCun, Y. and Boser, B. and Denker, J. S. and Henderson, D. and Howard, R. E. and Hubbard, W. and Jackel, L. D.},
+title = {Backpropagation Applied to Handwritten Zip Code Recognition},
+journal = {Neural Comput.},
+issue_date = {Winter 1989},
+volume = {1},
+number = {4},
+month = dec,
+year = {1989},
+issn = {0899-7667},
+pages = {541-- 551},
+numpages = {11},
+url = {http://dx.doi.org/10.1162/neco.1989.1.4.541},
+doi = {10.1162/neco.1989.1.4.541},
+acmid = {1351090},
+publisher = {MIT Press},
+address = {Cambridge, MA, USA},
+}
+
+@phdthesis{Ye:Dissertation, 
+author={Ye, Xin}, 
+title={Automated Software Defect Localization},
+school = {Ohio University},
+address={Athens, OH},
+year={2016},
+note={https://etd.ohiolink.edu/},
+}
+
+@inproceedings{Ye:ICSE16,
+ author = {Ye, Xin and Shen, Hui and Ma, Xiao and Bunescu, Razvan and Liu, Chang},
+ title = {From Word Embeddings to Document Similarities for Improved Information Retrieval in Software Engineering},
+ booktitle = {Proceedings of the 38th International Conference on Software Engineering},
+ series = {ICSE '16},
+ year = {2016},
+ isbn = {978-1-4503-3900-1},
+ location = {Austin, Texas},
+ pages = {404--415},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/2884781.2884862},
+ doi = {10.1145/2884781.2884862},
+ acmid = {2884862},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {API documents, bug localization, bug reports, skip-gram model, word embeddings},
+} 
+
+@ARTICLE{Ye:TSE15, 
+author={Ye, Xin and Bunescu, Razvan and Liu, Chang}, 
+journal={IEEE Transactions on Software Engineering}, 
+title={Mapping Bug Reports to Relevant Files: A Ranking Model, a Fine-Grained Benchmark, and Feature Evaluation}, 
+year={2016}, 
+volume={42}, 
+number={4}, 
+pages={379-402}, 
+keywords={Benchmark testing;Collaboration;Computational modeling;Computer bugs;History;Software;Standards;Bug reports;learning to rank;software maintenance}, 
+doi={10.1109/TSE.2015.2479232}, 
+ISSN={0098-5589}, 
+month={April},
+}
+
+@inproceedings{Ye:FSE14,
+ author = {Ye, Xin and Bunescu, Razvan and Liu, Chang},
+ title = {Learning to Rank Relevant Files for Bug Reports Using Domain Knowledge},
+ booktitle = {Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE 2014},
+ year = {2014},
+ isbn = {978-1-4673-1067-3},
+ location = {Hong Kong, China},
+ pages = {689--699},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=2337223.2337226},
+ acmid = {2337226},
+ address = {New York, NY, USA},
+}
+
+@ARTICLE{Ye:Access, 
+author={C. Liu and X. Ye and E. Ye}, 
+journal={IEEE Access}, 
+title={Source Code Revision History Visualization Tools: Do They Work and What Would it Take to Put Them to Work?}, 
+year={2014}, 
+volume={2}, 
+pages={404-426}, 
+keywords={configuration management;software engineering;software tools;source code (software);TeamWATCH;TortoiseSVN;command-line subversion client;source code revision history visualization tools;subversion code repositories;Computational complexity;Data visualization;Source codes;VIsualization;Software engineering;software comprehension;software development workspace awareness;software visualization;source code revision history;version control repository}, 
+doi={10.1109/ACCESS.2014.2322102}, 
+ISSN={2169-3536}, 
+month={},
+}
+
+@COMMENT{
+  IR approaches to recommend relevant files.
+}
+
+@INPROCEEDINGS{Saha:2013:ASE:6693093, 
+ author={Saha, R.K. and Lease, M. and Khurshid, S. and Perry, D.E.}, 
+ booktitle={Automated Software Engineering (ASE), 2013 IEEE/ACM 28th International Conference on}, 
+ title={Improving bug localization using structured information retrieval}, 
+ year={2013}, 
+ month={Nov}, 
+ pages={345-355},
+}
+
+@article{Kim:2013:WFT:2554428.2554437,
+ author = {Kim, Dongsun and Tao, Yida and Kim, Sunghun and Zeller, Andreas},
+ title = {Where Should We Fix This Bug? {A} Two-Phase Recommendation Model},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {November 2013},
+ volume = {39},
+ number = {11},
+ month = nov,
+ year = {2013},
+ issn = {0098-5589},
+ pages = {1597--1610},
+ numpages = {14},
+ acmid = {2554437},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Bug reports, machine learning, patch file prediction},
+}
+
+@inproceedings{Zhou:2012:BFM:2337223.2337226,
+ author = {Zhou, Jian and Zhang, Hongyu and Lo, David},
+ title = {Where Should the Bugs Be Fixed? - More Accurate Information Retrieval-based Bug Localization Based on Bug Reports},
+ booktitle = {Proceedings of the 2012 International Conference on Software Engineering},
+ series = {ICSE 2012},
+ year = {2012},
+ isbn = {978-1-4673-1067-3},
+ location = {Zurich, Switzerland},
+ pages = {14--24},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=2337223.2337226},
+ acmid = {2337226},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@INPROCEEDINGS{Wong:2014:ICSME, 
+ author={Wong, Chu-Pan and Xiong, Yingfei and Zhang, Hongyu and Hao, Dan and Zhang, Lu and Mei, Hong}, 
+ booktitle={Proc. ICSME'14, To Appear}, 
+ title={Boosting Bug-Report-Oriented Fault Localization with Segmentation and Stack-Trace Analysis}, 
+ year={2014},
+}
+
+@inproceedings{Nguyen:2011:TAN:2190078.2190181,
+ author = {Nguyen, Anh Tuan and Nguyen, Tung Thanh and Al-Kofahi, Jafar and Nguyen, Hung Viet and Nguyen, Tien N.},
+ title = {A Topic-based Approach for Narrowing the Search Space of Buggy Files from a Bug Report},
+ booktitle = {Proceedings of the 2011 26th IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '11},
+ year = {2011},
+ isbn = {978-1-4577-1638-6},
+ pages = {263--272},
+ numpages = {10},
+ acmid = {2190181},
+ doi = {10.1109/ASE.2011.6100062},
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Rao:2011:RSL:1985441.1985451,
+ author = {Rao, Shivani and Kak, Avinash},
+ title = {Retrieval from Software Libraries for Bug Localization: A Comparative Study of Generic and Composite Text Models},
+ booktitle = {Proceedings of the 8th Working Conference on Mining Software Repositories},
+ series = {MSR '11},
+ year = {2011},
+ isbn = {978-1-4503-0574-7},
+ location = {Waikiki, Honolulu, HI, USA},
+ pages = {43--52},
+ numpages = {10},
+ acmid = {1985451},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug localization, information retrieval, latent dirichlet allocation, latent semantic analysis, software engineering},
+}
+
+@article{Lukins:2010:BLU:1824820.1824850,
+ author = {Lukins, Stacy K. and Kraft, Nicholas A. and Etzkorn, Letha H.},
+ title = {Bug Localization Using {L}atent {D}irichlet {A}llocation},
+ journal = {Inf. Softw. Technol.},
+ issue_date = {September, 2010},
+ volume = {52},
+ number = {9},
+ month = sep,
+ year = {2010},
+ issn = {0950-5849},
+ pages = {972--990},
+ numpages = {19},
+ acmid = {1824850},
+ address = {Newton, MA, USA},
+ keywords = {Bug localization, Information retrieval, Latent Dirichlet allocation, Program comprehension},
+}
+
+@inproceedings{Ashok:2009:DRS:1595696.1595766,
+ author = {Ashok, B. and Joy, Joseph and Liang, Hongkang and Rajamani, Sriram K. and Srinivasa, Gopal and Vangala, Vipindeep},
+ title = {DebugAdvisor: A Recommender System for Debugging},
+ booktitle = {Proceedings of the the 7th Joint Meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on The Foundations of Software Engineering},
+ series = {ESEC/FSE '09},
+ year = {2009},
+ isbn = {978-1-60558-001-2},
+ location = {Amsterdam, The Netherlands},
+ pages = {373--382},
+ numpages = {10},
+ acmid = {1595766},
+ 
+ address = {New York, NY, USA},
+ keywords = {debugging, recommendation systems, search},
+}
+
+@COMMENT{
+  Concept/Feature Location.
+}
+
+@inproceedings{Binkley:2014:LRI:2705615.2706126,
+ author = {Binkley, David and Lawrie, Dawn},
+ title = {Learning to Rank Improves {IR} in {SE}},
+ booktitle = {Proceedings of the 2014 IEEE International Conference on Software Maintenance and Evolution},
+ series = {ICSME '14},
+ year = {2014},
+ isbn = {978-1-4799-6146-7},
+ pages = {441--445},
+ numpages = {5},
+ acmid = {2706126},
+ 
+ address = {Washington, DC, USA},
+ keywords = {Information Retrieval, Software Specific Retrieval},
+}
+
+@inproceedings{Dit:2013:DCH:2487085.2487114,
+ author = {Dit, Bogdan and Holtzhauer, Andrew and Poshyvanyk, Denys and Kagdi, Huzefa},
+ title = {A Dataset from Change History to Support Evaluation of Software Maintenance Tasks},
+ booktitle = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+ series = {MSR '13},
+ year = {2013},
+ isbn = {978-1-4673-2936-1},
+ location = {San Francisco, CA, USA},
+ pages = {131--134},
+ numpages = {4},
+ url = {http://dl.acm.org/citation.cfm?id=2487085.2487114},
+ acmid = {2487114},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@article{Dit:2013:IIR:2436118.2436134,
+ author = {Dit, Bogdan and Revelle, Meghan and Poshyvanyk, Denys},
+ title = {Integrating Information Retrieval, Execution and Link Analysis Algorithms to Improve Feature Location in Software},
+ journal = {Empirical Softw. Engg.},
+ issue_date = {April     2013},
+ volume = {18},
+ number = {2},
+ month = apr,
+ year = {2013},
+ issn = {1382-3256},
+ pages = {277--309},
+ numpages = {33},
+ acmid = {2436134},
+ address = {Hingham, MA, USA},
+ keywords = {Concept location, Feature identification, Information retrieval, Program comprehension, Software evolution and maintenance, Web mining},
+}
+
+@inproceedings{Dasgupta:2013:EST:2550526.2550586,
+ author = {Dasgupta, Tathagata and Grechanik, Mark and Moritz, Evan and Dit, Bogdan and Poshyvanyk, Denys},
+ title = {Enhancing Software Traceability by Automatically Expanding Corpora with Relevant Documentation},
+ booktitle = {Proceedings of the 2013 IEEE International Conference on Software Maintenance},
+ series = {ICSM '13},
+ year = {2013},
+ isbn = {978-0-7695-4981-1},
+ pages = {320--329},
+ numpages = {10},
+ acmid = {2550586},
+ 
+ address = {Washington, DC, USA},
+ keywords = {software traceability, machine learning, API call},
+}
+
+@article {SMR:SMR567,
+author = {Dit, Bogdan and Revelle, Meghan and Gethers, Malcom and Poshyvanyk, Denys},
+title = {Feature location in source code: a taxonomy and survey},
+journal = {Journal of Software: Evolution and Process},
+volume = {25},
+number = {1},
+issn = {2047-7481},
+pages = {53--95},
+keywords = {Feature location, concept location, program comprehension, software maintenance and evolution},
+year = {2013},
+}
+
+@article{Mcmillan:2013:PSR:2522920.2522930,
+ author = {Mcmillan, Collin and Poshyvanyk, Denys and Grechanik, Mark and Xie, Qing and Fu, Chen},
+ title = {Portfolio: Searching for Relevant Functions and Their Usages in Millions of Lines of Code},
+ journal = {ACM Trans. Softw. Eng. Methodol.},
+ issue_date = {October 2013},
+ volume = {22},
+ number = {4},
+ month = oct,
+ year = {2013},
+ issn = {1049-331X},
+ pages = {37:1--37:30},
+ articleno = {37},
+ numpages = {30},
+ acmid = {2522930},
+ 
+ address = {New York, NY, USA},
+ keywords = {Pagerank, Source-code search, information retrieval, natural language processing, user studies},
+}
+
+@article{Poshyvanyk:2013:CLU:2377656.2377660,
+ author = {Poshyvanyk, Denys and Gethers, Malcom and Marcus, Andrian},
+ title = {Concept Location Using Formal Concept Analysis and Information Retrieval},
+ journal = {ACM Trans. Softw. Eng. Methodol.},
+ issue_date = {November 2012},
+ volume = {21},
+ number = {4},
+ month = feb,
+ year = {2013},
+ issn = {1049-331X},
+ pages = {23:1--23:34},
+ articleno = {23},
+ numpages = {34},
+ acmid = {2377660},
+ 
+ address = {New York, NY, USA},
+ keywords = {Concept location, Formal Concept Analysis, Information Retrieval, feature identification, program comprehension, software evolution and maintenance},
+}
+
+@inproceedings{Gethers:2012:IIA:2337223.2337274,
+ author = {Gethers, Malcom and Dit, Bogdan and Kagdi, Huzefa and Poshyvanyk, Denys},
+ title = {Integrated Impact Analysis for Managing Software Changes},
+ booktitle = {Proceedings of the 34th International Conference on Software Engineering},
+ series = {ICSE '12},
+ year = {2012},
+ isbn = {978-1-4673-1067-3},
+ location = {Zurich, Switzerland},
+ pages = {430--440},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=2337223.2337274},
+ acmid = {2337274},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@article{McMillan:2012:ESC:2412388.2412993,
+ author = {McMillan, Collin and Grechanik, Mark and Poshyvanyk, Denys and Fu, Chen and Xie, Qing},
+ title = {Exemplar: A Source Code Search Engine for Finding Highly Relevant Applications},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {September 2012},
+ volume = {38},
+ number = {5},
+ month = sep,
+ year = {2012},
+ issn = {0098-5589},
+ pages = {1069--1087},
+ numpages = {19},
+ acmid = {2412993},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Search engines,Engines,Software,Java,Cryptography,Vocabulary,Data mining,software reuse,Source code search engines,information retrieval,concept location,open source software,mining software repositories},
+}
+
+@inproceedings{McMillan:2011:PFR:1985793.1985809,
+ author = {McMillan, Collin and Grechanik, Mark and Poshyvanyk, Denys and Xie, Qing and Fu, Chen},
+ title = {Portfolio: Finding Relevant Functions and Their Usage},
+ booktitle = {Proceedings of the 33rd International Conference on Software Engineering},
+ series = {ICSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0445-0},
+ location = {Waikiki, Honolulu, HI, USA},
+ pages = {111--120},
+ numpages = {10},
+ acmid = {1985809},
+ 
+ address = {New York, NY, USA},
+ keywords = {code search, function call graph, pagerank, portfolio, ranking},
+}
+
+@inproceedings{Bajracharya:2010:LUS:1882291.1882316,
+ author = {Bajracharya, Sushil K. and Ossher, Joel and Lopes, Cristina V.},
+ title = {Leveraging Usage Similarity for Effective Retrieval of Examples in Code Repositories},
+ booktitle = {Proceedings of the Eighteenth ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE '10},
+ year = {2010},
+ isbn = {978-1-60558-791-2},
+ location = {Santa Fe, New Mexico, USA},
+ pages = {157--166},
+ numpages = {10},
+ acmid = {1882316},
+ 
+ address = {New York, NY, USA},
+ keywords = {api usage, code search, software information retrieval, ssi, structural semantic indexing},
+}
+
+@INPROCEEDINGS{Gay:2009:5306315, 
+ author={Gay, G. and Haiduc, S. and Marcus, A. and Menzies, T.}, 
+ booktitle={Software Maintenance, 2009. ICSM 2009. IEEE International Conference on}, 
+ title={On the use of relevance feedback in {IR}-based concept location}, 
+ year={2009}, 
+ pages={351-360},
+ ISSN={1063-6773},
+}
+
+@article{Poshyvanyk:2007:FLU:1263152.1263534,
+ author = {Poshyvanyk, Denys and Gueheneuc, Yann-Gael and Marcus, Andrian and Antoniol, Giuliano and Rajlich, Vaclav},
+ title = {Feature Location Using Probabilistic Ranking of Methods Based on Execution Scenarios and Information Retrieval},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {June 2007},
+ volume = {33},
+ number = {6},
+ month = jun,
+ year = {2007},
+ issn = {0098-5589},
+ pages = {420--432},
+ numpages = {13},
+ acmid = {1263534},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Latent Semantic Indexing, Program understanding, Program understanding, feature identification, concept location, dynamic and static analyses, information retrieval, Latent Semantic Indexing, scenario-based probabilistic ranking, open source software., concept location, dynamic and static analyses, feature identification, information retrieval, open source software., scenario-based probabilistic ranking},
+}
+
+@inproceedings{Poshyvanyk:2007:CFC:1270394.1271345,
+ author = {Poshyvanyk, Denys and Marcus, Andrian},
+ title = {Combining Formal Concept Analysis with Information Retrieval for Concept Location in Source Code},
+ booktitle = {Proceedings of the 15th IEEE International Conference on Program Comprehension},
+ series = {ICPC '07},
+ year = {2007},
+ isbn = {0-7695-2860-0},
+ pages = {37--48},
+ numpages = {12},
+ acmid = {1271345},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Liu:2007:FLV:1321631.1321667,
+ author = {Liu, Dapeng and Marcus, Andrian and Poshyvanyk, Denys and Rajlich, Vaclav},
+ title = {Feature Location via Information Retrieval Based Filtering of a Single Scenario Execution Trace},
+ booktitle = {Proceedings of the Twenty-second IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '07},
+ year = {2007},
+ isbn = {978-1-59593-882-4},
+ location = {Atlanta, Georgia, USA},
+ pages = {234--243},
+ numpages = {10},
+ acmid = {1321667},
+ 
+ address = {New York, NY, USA},
+ keywords = {concept location, dynamic and static analyses, feature identification, information retrieval, program understanding},
+}
+
+@inproceedings{Shepherd:2007:UNL:1218563.1218587,
+ author = {Shepherd, David and Fry, Zachary P. and Hill, Emily and Pollock, Lori and Vijay-Shanker, K.},
+ title = {Using Natural Language Program Analysis to Locate and Understand Action-oriented Concerns},
+ booktitle = {Proceedings of the 6th International Conference on Aspect-oriented Software Development},
+ series = {AOSD '07},
+ year = {2007},
+ isbn = {1-59593-615-7},
+ location = {Vancouver, British Columbia, Canada},
+ pages = {212--224},
+ numpages = {13},
+ acmid = {1218587},
+ 
+ address = {New York, NY, USA},
+ keywords = {feature location, program analysis, remodularization, reverse engineering},
+}
+
+@inproceedings{Poshyvanyk:2006:CPR:1135772.1136177,
+ author = {Poshyvanyk, Denys and Marcus, Andrian and Rajlich, Vaclav and Gueheneuc, Yann-Gael and Antoniol, Giuliano},
+ title = {Combining Probabilistic Ranking and Latent Semantic Indexing for Feature Identification},
+ booktitle = {Proceedings of the 14th IEEE International Conference on Program Comprehension},
+ series = {ICPC '06},
+ year = {2006},
+ isbn = {0-7695-2601-2},
+ pages = {137--148},
+ numpages = {12},
+ acmid = {1136177},
+ 
+ address = {Washington, DC, USA},
+}
+
+@article{Antoniol:2006:FIE:1248725.1248761,
+ author = {Antoniol, Giuliano and Gueheneuc, Yann-Gael},
+ title = {Feature Identification: An Epidemiological Metaphor},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {September 2006},
+ volume = {32},
+ number = {9},
+ month = sep,
+ year = {2006},
+ issn = {0098-5589},
+ pages = {627--641},
+ numpages = {15},
+ acmid = {1248761},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Firefox and Mozilla Web browsers., Program understanding, Program understanding, dynamic analysis, static analysis, feature identification, epidemiology, Firefox and Mozilla Web browsers., dynamic analysis, epidemiology, feature identification, static analysis},
+}
+
+@inproceedings{Antoniol:2005:FIN:1090952.1091866,
+ author = {Antoniol, Giuliano and Gueheneuc, Yann-Gael},
+ title = {Feature Identification: A Novel Approach and a Case Study},
+ booktitle = {Proceedings of the 21st IEEE International Conference on Software Maintenance},
+ series = {ICSM '05},
+ year = {2005},
+ isbn = {0-7695-2368-4},
+ pages = {357--366},
+ numpages = {10},
+ acmid = {1091866},
+ 
+ address = {Washington, DC, USA},
+ keywords = {Program understanding, dynamic and static analyses, feature analysis, meta-modelling},
+}
+
+@inproceedings{Marcus:2004:IRA:1038267.1039053,
+ author = {Marcus, Andrian and Sergeyev, Andrey and Rajlich, Vaclav and Maletic, Jonathan I.},
+ title = {An Information Retrieval Approach to Concept Location in Source Code},
+ booktitle = {Proceedings of the 11th Working Conference on Reverse Engineering},
+ series = {WCRE '04},
+ year = {2004},
+ isbn = {0-7695-2243-2},
+ pages = {214--223},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=1038267.1039053},
+ acmid = {1039053},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Biggerstaff:1993:CAP:257572.257679,
+ author = {Biggerstaff, Ted J. and Mitbander, Bharat G. and Webster, Dallas},
+ title = {The Concept Assignment Problem in Program Understanding},
+ booktitle = {Proceedings of the 15th International Conference on Software Engineering},
+ series = {ICSE '93},
+ year = {1993},
+ isbn = {0-89791-588-7},
+ location = {Baltimore, Maryland, USA},
+ pages = {482--498},
+ numpages = {17},
+ url = {http://dl.acm.org/citation.cfm?id=257572.257679},
+ acmid = {257679},
+ address = {Los Alamitos, CA, USA},
+ keywords = {concept recognition, connectionist, domain, knowledge base, plausible reasoning, reverse engineering, slicing},
+}
+
+@INPROCEEDINGS{242542, 
+author={Wilde, N. and Gomez, J.A. and Gust, T. and Strasburg, D.}, 
+booktitle={Software Maintenance, 1992. Proceerdings., Conference on}, 
+title={Locating user functionality in old code}, 
+year={1992}, 
+month={Nov}, 
+pages={200-205},
+}
+
+@COMMENT{
+  Faults Localization.
+}
+
+@inproceedings{Jin:2013:FFL:2483760.2483763,
+ author = {Jin, Wei and Orso, Alessandro},
+ title = {F3: Fault Localization for Field Failures},
+ booktitle = {Proceedings of the 2013 International Symposium on Software Testing and Analysis},
+ series = {ISSTA 2013},
+ year = {2013},
+ isbn = {978-1-4503-2159-4},
+ location = {Lugano, Switzerland},
+ pages = {213--223},
+ numpages = {11},
+ acmid = {2483763},
+ 
+ address = {New York, NY, USA},
+ keywords = {Debugging, fault localization, field failures},
+}
+
+@inproceedings{Burger:2011:MRS:2001420.2001447,
+ author = {Burger, Martin and Zeller, Andreas},
+ title = {Minimizing Reproduction of Software Failures},
+ booktitle = {Proceedings of the 2011 International Symposium on Software Testing and Analysis},
+ series = {ISSTA '11},
+ year = {2011},
+ isbn = {978-1-4503-0562-4},
+ location = {Toronto, Ontario, Canada},
+ pages = {221--231},
+ numpages = {11},
+ acmid = {2001447},
+ 
+ address = {New York, NY, USA},
+ keywords = {automated debugging, capture/replay},
+}
+
+@inproceedings{Acharya:2011:PCI:1985793.1985898,
+ author = {Acharya, Mithun and Robinson, Brian},
+ title = {Practical Change Impact Analysis Based on Static Program Slicing for Industrial Software Systems},
+ booktitle = {Proceedings of the 33rd International Conference on Software Engineering},
+ series = {ICSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0445-0},
+ location = {Waikiki, Honolulu, HI, USA},
+ pages = {746--755},
+ numpages = {10},
+ acmid = {1985898},
+ 
+ address = {New York, NY, USA},
+ keywords = {change impact analysis, empirical study, static program slicing},
+}
+
+@article{Abreu:2009:PES:1630165.1630274,
+ author = {Abreu, Rui and Zoeteweij, Peter and Golsteijn, Rob and van Gemund, Arjan J. C.},
+ title = {A Practical Evaluation of Spectrum-based Fault Localization},
+ journal = {J. Syst. Softw.},
+ issue_date = {November, 2009},
+ volume = {82},
+ number = {11},
+ month = nov,
+ year = {2009},
+ issn = {0164-1212},
+ pages = {1780--1792},
+ numpages = {13},
+ acmid = {1630274},
+ address = {New York, NY, USA},
+ keywords = {Consumer electronics, Program spectra, Real-time and embedded systems, Software fault diagnosis, Test data analysis},
+}
+
+@inproceedings{Chesley:2007:CFL:1248820.1248914,
+ author = {Chesley, Ophelia C. and Ren, Xiaoxia and Ryder, Barbara G. and Tip, Frank},
+ title = {Crisp--A Fault Localization Tool for Java Programs},
+ booktitle = {Proceedings of the 29th International Conference on Software Engineering},
+ series = {ICSE '07},
+ year = {2007},
+ isbn = {0-7695-2828-7},
+ pages = {775--779},
+ numpages = {5},
+ acmid = {1248914},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Stoerzer:2006:FFC:1181775.1181783,
+ author = {Stoerzer, Maximilian and Ryder, Barbara G. and Ren, Xiaoxia and Tip, Frank},
+ title = {Finding Failure-inducing Changes in Java Programs Using Change Classification},
+ booktitle = {Proceedings of the 14th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {SIGSOFT '06/FSE-14},
+ year = {2006},
+ isbn = {1-59593-468-5},
+ location = {Portland, Oregon, USA},
+ pages = {57--68},
+ numpages = {12},
+ acmid = {1181783},
+ 
+ address = {New York, NY, USA},
+ keywords = {change impact analysis, debugging, fault localization, testing, version control},
+}
+
+@article{Liu:2006:SDH:1248726.1248773,
+ author = {Liu, Chao and Fei, Long and Yan, Xifeng and Han, Jiawei and Midkiff, Samuel P.},
+ title = {Statistical Debugging: A Hypothesis Testing-Based Approach},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {October 2006},
+ volume = {32},
+ number = {10},
+ month = oct,
+ year = {2006},
+ issn = {0098-5589},
+ pages = {831--848},
+ numpages = {18},
+ acmid = {1248773},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Debugging aids, Debugging aids, statistical methods, statistical debugging., statistical debugging., statistical methods},
+}
+
+@inproceedings{Breech:2006:IIM:1172962.1172978,
+ author = {Breech, Ben and Tegtmeyer, Mike and Pollock, Lori},
+ title = {Integrating Influence Mechanisms into Impact Analysis for Increased Precision},
+ booktitle = {Proceedings of the 22Nd IEEE International Conference on Software Maintenance},
+ series = {ICSM '06},
+ year = {2006},
+ isbn = {0-7695-2354-4},
+ pages = {55--65},
+ numpages = {11},
+ acmid = {1172978},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Liu:2005:SSM:1081706.1081753,
+ author = {Liu, Chao and Yan, Xifeng and Fei, Long and Han, Jiawei and Midkiff, Samuel P.},
+ title = {SOBER: Statistical Model-based Bug Localization},
+ booktitle = {Proceedings of the 10th European Software Engineering Conference Held Jointly with 13th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {ESEC/FSE-13},
+ year = {2005},
+ isbn = {1-59593-014-0},
+ location = {Lisbon, Portugal},
+ pages = {286--295},
+ numpages = {10},
+ acmid = {1081753},
+ 
+ address = {New York, NY, USA},
+ keywords = {localization metrics, statistical debugging},
+}
+
+@inproceedings{Jones:2005:EET:1101908.1101949,
+ author = {Jones, James A. and Harrold, Mary Jean},
+ title = {Empirical Evaluation of the Tarantula Automatic Fault-localization Technique},
+ booktitle = {Proceedings of the 20th IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '05},
+ year = {2005},
+ isbn = {1-58113-993-4},
+ location = {Long Beach, CA, USA},
+ pages = {273--282},
+ numpages = {10},
+ acmid = {1101949},
+ 
+ address = {New York, NY, USA},
+ keywords = {automated debugging, empirical study, fault localization, program analysis},
+}
+
+@inproceedings{Liblit:2005:SSB:1065010.1065014,
+ author = {Liblit, Ben and Naik, Mayur and Zheng, Alice X. and Aiken, Alex and Jordan, Michael I.},
+ title = {Scalable Statistical Bug Isolation},
+ booktitle = {Proceedings of the 2005 ACM SIGPLAN Conference on Programming Language Design and Implementation},
+ series = {PLDI '05},
+ year = {2005},
+ isbn = {1-59593-056-6},
+ location = {Chicago, IL, USA},
+ pages = {15--26},
+ numpages = {12},
+ acmid = {1065014},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug isolation, feature selection, invariants, random sampling, statistical debugging},
+}
+
+@inproceedings{Cleve:2005:LCP:1062455.1062522,
+ author = {Cleve, Holger and Zeller, Andreas},
+ title = {Locating Causes of Program Failures},
+ booktitle = {Proceedings of the 27th International Conference on Software Engineering},
+ series = {ICSE '05},
+ year = {2005},
+ isbn = {1-58113-963-2},
+ location = {St. Louis, MO, USA},
+ pages = {342--351},
+ numpages = {10},
+ acmid = {1062522},
+ 
+ address = {New York, NY, USA},
+ keywords = {adaptive testing, automated debugging, program analysis, tracing},
+}
+
+@inproceedings{Ren:2005:CCI:1062455.1062598,
+ author = {Ren, Xiaoxia and Ryder, Barbara G. and Stoerzer, Maximilian and Tip, Frank},
+ title = {Chianti: A Change Impact Analysis Tool for Java Programs},
+ booktitle = {Proceedings of the 27th International Conference on Software Engineering},
+ series = {ICSE '05},
+ year = {2005},
+ isbn = {1-58113-963-2},
+ location = {St. Louis, MO, USA},
+ pages = {664--665},
+ numpages = {2},
+ acmid = {1062598},
+ 
+ address = {New York, NY, USA},
+ keywords = {analysis of object-oriented programs, change impact analysis, regression test, unit test},
+}
+
+@inproceedings{Zhang:2005:EEU:1085130.1085135,
+ author = {Zhang, Xiangyu and He, Haifeng and Gupta, Neelam and Gupta, Rajiv},
+ title = {Experimental Evaluation of Using Dynamic Slices for Fault Location},
+ booktitle = {Proceedings of the Sixth International Symposium on Automated Analysis-driven Debugging},
+ series = {AADEBUG'05},
+ year = {2005},
+ isbn = {1-59593-050-7},
+ location = {Monterey, California, USA},
+ pages = {33--42},
+ numpages = {10},
+ acmid = {1085135},
+ 
+ address = {New York, NY, USA},
+ keywords = {data slice, debugging, full slice, relevant slice},
+}
+
+@inproceedings{Brun:2004:FLC:998675.999452,
+ author = {Brun, Yuriy and Ernst, Michael D.},
+ title = {Finding Latent Code Errors via Machine Learning over Program Executions},
+ booktitle = {Proceedings of the 26th International Conference on Software Engineering},
+ series = {ICSE '04},
+ year = {2004},
+ isbn = {0-7695-2163-0},
+ pages = {480--490},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=998675.999452},
+ acmid = {999452},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Manevich:2004:PEP:1029894.1029907,
+ author = {Manevich, Roman and Sridharan, Manu and Adams, Stephen and Das, Manuvir and Yang, Zhe},
+ title = {PSE: Explaining Program Failures via Postmortem Static Analysis},
+ booktitle = {Proceedings of the 12th ACM SIGSOFT Twelfth International Symposium on Foundations of Software Engineering},
+ series = {SIGSOFT '04/FSE-12},
+ year = {2004},
+ isbn = {1-58113-855-5},
+ location = {Newport Beach, CA, USA},
+ pages = {63--72},
+ numpages = {10},
+ acmid = {1029907},
+ 
+ address = {New York, NY, USA},
+ keywords = {alias analysis, postmortem analysis, typestate, value flow},
+}
+
+@inproceedings{Liblit:2003:BIV:781131.781148,
+ author = {Liblit, Ben and Aiken, Alex and Zheng, Alice X. and Jordan, Michael I.},
+ title = {Bug Isolation via Remote Program Sampling},
+ booktitle = {Proceedings of the ACM SIGPLAN 2003 Conference on Programming Language Design and Implementation},
+ series = {PLDI '03},
+ year = {2003},
+ isbn = {1-58113-662-5},
+ location = {San Diego, California, USA},
+ pages = {141--154},
+ numpages = {14},
+ acmid = {781148},
+ 
+ address = {New York, NY, USA},
+ keywords = {assertions, bug isolation, feature selection, logistic regression, random sampling, statistical debugging},
+}
+
+@inproceedings{Jones:2002:VTI:581339.581397,
+ author = {Jones, James A. and Harrold, Mary Jean and Stasko, John},
+ title = {Visualization of Test Information to Assist Fault Localization},
+ booktitle = {Proceedings of the 24th International Conference on Software Engineering},
+ series = {ICSE '02},
+ year = {2002},
+ isbn = {1-58113-472-X},
+ location = {Orlando, Florida},
+ pages = {467--477},
+ numpages = {11},
+ acmid = {581397},
+ 
+ address = {New York, NY, USA},
+}
+
+@article{Zeller:2002:SIF:506201.506206,
+ author = {Zeller, Andreas and Hildebrandt, Ralf},
+ title = {Simplifying and Isolating Failure-Inducing Input},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {February 2002},
+ volume = {28},
+ number = {2},
+ month = feb,
+ year = {2002},
+ issn = {0098-5589},
+ pages = {183--200},
+ numpages = {18},
+ acmid = {506206},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Automated debugging, debugging aids, testing tools, combinatorial testing, diagnostics, tracing.},
+}
+
+@article{Weiser:1982:PUS:358557.358577,
+ author = {Weiser, Mark},
+ title = {Programmers Use Slices when Debugging},
+ journal = {Commun. ACM},
+ issue_date = {July 1982},
+ volume = {25},
+ number = {7},
+ month = jul,
+ year = {1982},
+ issn = {0001-0782},
+ pages = {446--452},
+ numpages = {7},
+ acmid = {358577},
+ 
+ address = {New York, NY, USA},
+ keywords = {program decomposition, slice},
+}
+
+@inproceedings{Weiser:1981:PS:800078.802557,
+ author = {Weiser, Mark},
+ title = {Program Slicing},
+ booktitle = {Proceedings of the 5th International Conference on Software Engineering},
+ series = {ICSE '81},
+ year = {1981},
+ isbn = {0-89791-146-6},
+ location = {San Diego, California, USA},
+ pages = {439--449},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=800078.802557},
+ acmid = {802557},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Data flow analysis, Debugging, Human factors, Program maintenance, Program metrics, Software tools},
+}
+
+@COMMENT{
+  Defect Prediction.
+}
+
+@inproceedings{Lee:2011:MIM:2025113.2025156,
+ author = {Lee, Taek and Nam, Jaechang and Han, DongGyun and Kim, Sunghun and In, Hoh Peter},
+ title = {Micro Interaction Metrics for Defect Prediction},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {311--321},
+ numpages = {11},
+ acmid = {2025156},
+ 
+ address = {New York, NY, USA},
+ keywords = {defect prediction, micro interaction metrics, mylyn},
+}
+
+@inproceedings{Nagappan:2010:CBD:1913797.1914387,
+ author = {Nagappan, Nachiappan and Zeller, Andreas and Zimmermann, Thomas and Herzig, Kim and Murphy, Brendan},
+ title = {Change Bursts As Defect Predictors},
+ booktitle = {Proceedings of the 2010 IEEE 21st International Symposium on Software Reliability Engineering},
+ series = {ISSRE '10},
+ year = {2010},
+ isbn = {978-0-7695-4255-3},
+ pages = {309--318},
+ numpages = {10},
+ acmid = {1914387},
+ 
+ address = {Washington, DC, USA},
+ keywords = {Process metrics, product metrics, software quality assurance, version control, change history, defects, developers, software mining, empirical studies},
+}
+
+@inproceedings{Hassan:2009:PFU:1555001.1555024,
+ author = {Hassan, Ahmed E.},
+ title = {Predicting Faults Using the Complexity of Code Changes},
+ booktitle = {Proceedings of the 31st International Conference on Software Engineering},
+ series = {ICSE '09},
+ year = {2009},
+ isbn = {978-1-4244-3453-4},
+ pages = {78--88},
+ numpages = {11},
+ acmid = {1555024},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Zimmermann:2008:PDU:1368088.1368161,
+ author = {Zimmermann, Thomas and Nagappan, Nachiappan},
+ title = {Predicting Defects Using Network Analysis on Dependency Graphs},
+ booktitle = {Proceedings of the 30th International Conference on Software Engineering},
+ series = {ICSE '08},
+ year = {2008},
+ isbn = {978-1-60558-079-1},
+ location = {Leipzig, Germany},
+ pages = {531--540},
+ numpages = {10},
+ acmid = {1368161},
+ 
+ address = {New York, NY, USA},
+ keywords = {defect prediction, dependency graph, network analysis, windows server 2003},
+}
+
+@inproceedings{Moser:2008:CAE:1368088.1368114,
+ author = {Moser, Raimund and Pedrycz, Witold and Succi, Giancarlo},
+ title = {A Comparative Analysis of the Efficiency of Change Metrics and Static Code Attributes for Defect Prediction},
+ booktitle = {Proceedings of the 30th International Conference on Software Engineering},
+ series = {ICSE '08},
+ year = {2008},
+ isbn = {978-1-60558-079-1},
+ location = {Leipzig, Germany},
+ pages = {181--190},
+ numpages = {10},
+ acmid = {1368114},
+ 
+ address = {New York, NY, USA},
+ keywords = {cost-sensitive classification, defect prediction, software metrics},
+}
+
+@article{Kim:2008:CSC:1399105.1399451,
+ author = {Kim, Sunghun and Whitehead,Jr., E. James and Zhang, Yi},
+ title = {Classifying Software Changes: Clean or {B}uggy?},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {March 2008},
+ volume = {34},
+ number = {2},
+ month = mar,
+ year = {2008},
+ issn = {0098-5589},
+ pages = {181--196},
+ numpages = {16},
+ acmid = {1399451},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Clustering, Configuration Management, Data mining, Metrics/Measurement, Software maintenance, Software maintenance, Metrics/Measurement, Clustering, classification, and association rules, Configuration Management, Data mining, and association rules, classification},
+}
+
+@inproceedings{Kim:2007:PFC:1248820.1248881,
+ author = {Kim, Sunghun and Zimmermann, Thomas and Whitehead Jr., E. James and Zeller, Andreas},
+ title = {Predicting Faults from Cached History},
+ booktitle = {Proceedings of the 29th International Conference on Software Engineering},
+ series = {ICSE '07},
+ year = {2007},
+ isbn = {0-7695-2828-7},
+ pages = {489--498},
+ numpages = {10},
+ acmid = {1248881},
+ 
+ address = {Washington, DC, USA},
+}
+
+@article{Menzies:2007:DMS:1248721.1248734,
+ author = {Menzies, Tim and Greenwald, Jeremy and Frank, Art},
+ title = {Data Mining Static Code Attributes to Learn Defect Predictors},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {January 2007},
+ volume = {33},
+ number = {1},
+ month = jan,
+ year = {2007},
+ issn = {0098-5589},
+ pages = {2--13},
+ numpages = {12},
+ acmid = {1248734},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Data mining detect prediction, Data mining detect prediction, McCabe, Halstead, artifical intelligence, empirical, naive Bayes., Halstead, McCabe, artifical intelligence, empirical, naive Bayes.},
+}
+
+@inproceedings{Ratzinger:2007:EPS:1759394.1759399,
+ author = {Ratzinger, Jacek and Pinzger, Martin and Gall, Harald},
+ title = {EQ-mine: Predicting Short-term Defects for Software Evolution},
+ booktitle = {Proceedings of the 10th International Conference on Fundamental Approaches to Software Engineering},
+ series = {FASE'07},
+ year = {2007},
+ isbn = {978-3-540-71288-6},
+ location = {Braga, Portugal},
+ pages = {12--26},
+ numpages = {15},
+ url = {http://dl.acm.org/citation.cfm?id=1759394.1759399},
+ acmid = {1759399},
+ address = {Berlin, Heidelberg},
+ keywords = {classification, defect density, machine learning, quality prediction, regression, software evolution},
+}
+
+@inproceedings{Nagappan:2006:MMP:1134285.1134349,
+ author = {Nagappan, Nachiappan and Ball, Thomas and Zeller, Andreas},
+ title = {Mining Metrics to Predict Component Failures},
+ booktitle = {Proceedings of the 28th International Conference on Software Engineering},
+ series = {ICSE '06},
+ year = {2006},
+ isbn = {1-59593-375-1},
+ location = {Shanghai, China},
+ pages = {452--461},
+ numpages = {10},
+ acmid = {1134349},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug database, complexity metrics, empirical study, principal component analysis, regression model},
+}
+
+@inproceedings{Bell:2006:LBR:1146238.1146246,
+ author = {Bell, Robert M. and Ostrand, Thomas J. and Weyuker, Elaine J.},
+ title = {Looking for Bugs in All the Right Places},
+ booktitle = {Proceedings of the 2006 International Symposium on Software Testing and Analysis},
+ series = {ISSTA '06},
+ year = {2006},
+ isbn = {1-59593-263-1},
+ location = {Portland, Maine, USA},
+ pages = {61--72},
+ numpages = {12},
+ acmid = {1146246},
+ 
+ address = {New York, NY, USA},
+ keywords = {empirical study, fault-prone, prediction, regression model, software faults, software testing},
+}
+
+@inproceedings{Sliwerski:2005:HRR:1081706.1081725,
+ author = {\'{S}liwerski, Jacek and Zimmermann, Thomas and Zeller, Andreas},
+ title = {HATARI: Raising Risk Awareness},
+ booktitle = {Proceedings of the 10th European Software Engineering Conference Held Jointly with 13th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {ESEC/FSE-13},
+ year = {2005},
+ isbn = {1-59593-014-0},
+ location = {Lisbon, Portugal},
+ pages = {107--110},
+ numpages = {4},
+ acmid = {1081725},
+ 
+ address = {New York, NY, USA},
+}
+
+@article{Ostrand:2005:PLN:1069598.1069769,
+ author = {Ostrand, Thomas J. and Weyuker, Elaine J. and Bell, Robert M.},
+ title = {Predicting the Location and Number of Faults in Large Software Systems},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {April 2005},
+ volume = {31},
+ number = {4},
+ month = apr,
+ year = {2005},
+ issn = {0098-5589},
+ pages = {340--355},
+ numpages = {16},
+ acmid = {1069769},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {Index Terms- Software faults, Index Terms- Software faults, fault-prone, prediction, regression model, empirical study, software testing., empirical study, fault-prone, prediction, regression model, software testing.},
+}
+
+@COMMENT{
+  Dataset.
+}
+
+@inproceedings{Dallmeier:2007:EBL:1321631.1321702,
+ author = {Dallmeier, Valentin and Zimmermann, Thomas},
+ title = {Extraction of Bug Localization Benchmarks from History},
+ booktitle = {Proceedings of the Twenty-second IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '07},
+ year = {2007},
+ isbn = {978-1-59593-882-4},
+ location = {Atlanta, Georgia, USA},
+ pages = {433--436},
+ numpages = {4},
+ acmid = {1321702},
+ 
+ address = {New York, NY, USA},
+ keywords = {benchmarking, defect localization},
+}
+
+@COMMENT{
+  Missing Links.
+}
+
+@inproceedings{Wu:2011:RRL:2025113.2025120,
+ author = {Wu, Rongxin and Zhang, Hongyu and Kim, Sunghun and Cheung, Shing-Chi},
+ title = {ReLink: Recovering Links Between Bugs and Changes},
+ booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+ series = {ESEC/FSE '11},
+ year = {2011},
+ isbn = {978-1-4503-0443-6},
+ location = {Szeged, Hungary},
+ pages = {15--25},
+ numpages = {11},
+ acmid = {2025120},
+ 
+ address = {New York, NY, USA},
+ keywords = {bugs, changes, data quality, mining software repository, missing links},
+}
+
+@inproceedings{Bachmann:2010:MLB:1882291.1882308,
+ author = {Bachmann, Adrian and Bird, Christian and Rahman, Foyzur and Devanbu, Premkumar and Bernstein, Abraham},
+ title = {The Missing Links: Bugs and Bug-fix Commits},
+ booktitle = {Proceedings of the Eighteenth ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {FSE '10},
+ year = {2010},
+ isbn = {978-1-60558-791-2},
+ location = {Santa Fe, New Mexico, USA},
+ pages = {97--106},
+ numpages = {10},
+ acmid = {1882308},
+ 
+ address = {New York, NY, USA},
+ keywords = {apache, bias, case study, manual annotation, tool},
+}
+
+@inproceedings{Bird:2009:FBB:1595696.1595716,
+ author = {Bird, Christian and Bachmann, Adrian and Aune, Eirik and Duffy, John and Bernstein, Abraham and Filkov, Vladimir and Devanbu, Premkumar},
+ title = {Fair and Balanced?: Bias in Bug-fix Datasets},
+ booktitle = {Proceedings of the the 7th Joint Meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on The Foundations of Software Engineering},
+ series = {ESEC/FSE '09},
+ year = {2009},
+ isbn = {978-1-60558-001-2},
+ location = {Amsterdam, The Netherlands},
+ pages = {121--130},
+ numpages = {10},
+ acmid = {1595716},
+ 
+ address = {New York, NY, USA},
+ keywords = {bias},
+}
+
+@COMMENT{
+  Bug Report Quality.
+}
+
+@inproceedings{Breu:2010:INB:1718918.1718973,
+ author = {Breu, Silvia and Premraj, Rahul and Sillito, Jonathan and Zimmermann, Thomas},
+ title = {Information Needs in Bug Reports: Improving Cooperation Between Developers and Users},
+ booktitle = {Proceedings of the 2010 ACM Conference on Computer Supported Cooperative Work},
+ series = {CSCW '10},
+ year = {2010},
+ isbn = {978-1-60558-795-0},
+ location = {Savannah, Georgia, USA},
+ pages = {301--310},
+ numpages = {10},
+ acmid = {1718973},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug reports, information needs, question time, questions, response rate, response time},
+}
+
+@inproceedings{Bettenburg:2008:MGB:1453101.1453146,
+ author = {Bettenburg, Nicolas and Just, Sascha and Schr\"{o}ter, Adrian and Weiss, Cathrin and Premraj, Rahul and Zimmermann, Thomas},
+ title = {What Makes a Good Bug Report?},
+ booktitle = {Proceedings of the 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering},
+ series = {SIGSOFT '08/FSE-16},
+ year = {2008},
+ isbn = {978-1-59593-995-1},
+ location = {Atlanta, Georgia},
+ pages = {308--318},
+ numpages = {11},
+ acmid = {1453146},
+ 
+ address = {New York, NY, USA},
+}
+
+@inproceedings{Hooimeijer:2007:MBR:1321631.1321639,
+ author = {Hooimeijer, Pieter and Weimer, Westley},
+ title = {Modeling Bug Report Quality},
+ booktitle = {Proceedings of the Twenty-second IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '07},
+ year = {2007},
+ isbn = {978-1-59593-882-4},
+ location = {Atlanta, Georgia, USA},
+ pages = {34--43},
+ numpages = {10},
+ acmid = {1321639},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug report triage, information retrieval, issue tracking, statistical model},
+}
+
+@COMMENT{
+  Bug Report Triage.
+}
+
+@inproceedings{Shokripour:2013:WSC:2487085.2487089,
+ author = {Shokripour, Ramin and Anvik, John and Kasirun, Zarinah M. and Zamani, Sima},
+ title = {Why So Complicated? Simple Term Filtering and Weighting for Location-based Bug Report Assignment Recommendation},
+ booktitle = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+ series = {MSR '13},
+ year = {2013},
+ isbn = {978-1-4673-2936-1},
+ location = {San Francisco, CA, USA},
+ pages = {2--11},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2487085.2487089},
+ acmid = {2487089},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Guo:2011:MBO:1958824.1958887,
+ author = {Guo, Philip J. and Zimmermann, Thomas and Nagappan, Nachiappan and Murphy, Brendan},
+ title = {"Not My Bug!" and Other Reasons for Software Bug Report Reassignments},
+ booktitle = {Proceedings of the ACM 2011 Conference on Computer Supported Cooperative Work},
+ series = {CSCW '11},
+ year = {2011},
+ isbn = {978-1-4503-0556-3},
+ location = {Hangzhou, China},
+ pages = {395--404},
+ numpages = {10},
+ acmid = {1958887},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug reassignment, bug tracking, bug triaging},
+}
+
+@inproceedings{Jeong:2009:IBT:1595696.1595715,
+ author = {Jeong, Gaeul and Kim, Sunghun and Zimmermann, Thomas},
+ title = {Improving Bug Triage with Bug Tossing Graphs},
+ booktitle = {Proceedings of the the 7th Joint Meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on The Foundations of Software Engineering},
+ series = {ESEC/FSE '09},
+ year = {2009},
+ isbn = {978-1-60558-001-2},
+ location = {Amsterdam, The Netherlands},
+ pages = {111--120},
+ numpages = {10},
+ acmid = {1595715},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug report assignment, bug tossing, bug triage, issue tracking, machine learning, problem tracking},
+}
+
+@inproceedings{Anvik:2006:FTB:1134285.1134336,
+ author = {Anvik, John and Hiew, Lyndon and Murphy, Gail C.},
+ title = {Who Should Fix This Bug?},
+ booktitle = {Proceedings of the 28th International Conference on Software Engineering},
+ series = {ICSE '06},
+ year = {2006},
+ isbn = {1-59593-375-1},
+ location = {Shanghai, China},
+ pages = {361--370},
+ numpages = {10},
+ acmid = {1134336},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug report assignment, bug triage, issue tracking, machine learning, problem tracking},
+}
+
+@COMMENT{
+  Duplicate Bug Reports.
+}
+
+@INPROCEEDINGS{Liu:2013:6671283, 
+ author={Kaiping Liu and Hee Beng Kuan Tan and Hongyu Zhang}, 
+ booktitle={Reverse Engineering (WCRE), 2013 20th Working Conference on}, 
+ title={Has this bug been reported?}, 
+ year={2013}, 
+ pages={82-91},
+}
+
+@inproceedings{Amoui:2013:SDD:2487085.2487122,
+ author = {Amoui, Mehdi and Kaushik, Nilam and Al-Dabbagh, Abraham and Tahvildari, Ladan and Li, Shimin and Liu, Weining},
+ title = {Search-based Duplicate Defect Detection: An Industrial Experience},
+ booktitle = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+ series = {MSR '13},
+ year = {2013},
+ isbn = {978-1-4673-2936-1},
+ location = {San Francisco, CA, USA},
+ pages = {173--182},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2487085.2487122},
+ acmid = {2487122},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Alipour:2013:CAT:2487085.2487123,
+ author = {Alipour, Anahita and Hindle, Abram and Stroulia, Eleni},
+ title = {A Contextual Approach Towards More Accurate Duplicate Bug Report Detection},
+ booktitle = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+ series = {MSR '13},
+ year = {2013},
+ isbn = {978-1-4673-2936-1},
+ location = {San Francisco, CA, USA},
+ pages = {183--192},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2487085.2487123},
+ acmid = {2487123},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Dang:2012:RMC:2337223.2337364,
+ author = {Dang, Yingnong and Wu, Rongxin and Zhang, Hongyu and Zhang, Dongmei and Nobel, Peter},
+ title = {ReBucket: A Method for Clustering Duplicate Crash Reports Based on Call Stack Similarity},
+ booktitle = {Proceedings of the 2012 International Conference on Software Engineering},
+ series = {ICSE 2012},
+ year = {2012},
+ isbn = {978-1-4673-1067-3},
+ location = {Zurich, Switzerland},
+ pages = {1084--1093},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2337223.2337364},
+ acmid = {2337364},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Nguyen:2012:DBR:2351676.2351687,
+ author = {Nguyen, Anh Tuan and Nguyen, Tung Thanh and Nguyen, Tien N. and Lo, David and Sun, Chengnian},
+ title = {Duplicate Bug Report Detection with a Combination of Information Retrieval and Topic Modeling},
+ booktitle = {Proceedings of the 27th IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE 2012},
+ year = {2012},
+ isbn = {978-1-4503-1204-2},
+ location = {Essen, Germany},
+ pages = {70--79},
+ numpages = {10},
+ acmid = {2351687},
+ 
+ address = {New York, NY, USA},
+ keywords = {Duplicate Bug Reports, Information Retrieval, Topic Model},
+}
+
+@inproceedings{Zhou:2012:LRD:2396761.2396869,
+ author = {Zhou, Jian and Zhang, Hongyu},
+ title = {Learning to Rank Duplicate Bug Reports},
+ booktitle = {Proceedings of the 21st ACM International Conference on Information and Knowledge Management},
+ series = {CIKM '12},
+ year = {2012},
+ isbn = {978-1-4503-1156-4},
+ location = {Maui, Hawaii, USA},
+ pages = {852--861},
+ numpages = {10},
+ acmid = {2396869},
+ 
+ address = {New York, NY, USA},
+ keywords = {bug reports, duplicate bug retrieval, duplicate documents, learning to rank, software maintenance},
+}
+
+@inproceedings{Kaushik:2012:CSP:2191744.2192561,
+ author = {Kaushik, Nilam and Tahvildari, Ladan},
+ title = {A Comparative Study of the Performance of IR Models on Duplicate Bug Detection},
+ booktitle = {Proceedings of the 2012 16th European Conference on Software Maintenance and Reengineering},
+ series = {CSMR '12},
+ year = {2012},
+ isbn = {978-0-7695-4666-7},
+ pages = {159--168},
+ numpages = {10},
+ acmid = {2192561},
+ 
+ address = {Washington, DC, USA},
+ keywords = {duplicate, bug, information retrieval},
+}
+
+@inproceedings{Sun:2011:TMA:2190078.2190180,
+ author = {Sun, Chengnian and Lo, David and Khoo, Siau-Cheng and Jiang, Jing},
+ title = {Towards More Accurate Retrieval of Duplicate Bug Reports},
+ booktitle = {Proceedings of the 2011 26th IEEE/ACM International Conference on Automated Software Engineering},
+ series = {ASE '11},
+ year = {2011},
+ isbn = {978-1-4577-1638-6},
+ pages = {253--262},
+ numpages = {10},
+ acmid = {2190180},
+ 
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{Sun:2010:DMA:1806799.1806811,
+ author = {Sun, Chengnian and Lo, David and Wang, Xiaoyin and Jiang, Jing and Khoo, Siau-Cheng},
+ title = {A Discriminative Model Approach for Accurate Duplicate Bug Report Retrieval},
+ booktitle = {Proceedings of the 32Nd ACM/IEEE International Conference on Software Engineering - Volume 1},
+ series = {ICSE '10},
+ year = {2010},
+ isbn = {978-1-60558-719-6},
+ location = {Cape Town, South Africa},
+ pages = {45--54},
+ numpages = {10},
+ acmid = {1806811},
+ 
+ address = {New York, NY, USA},
+}
+
+@inproceedings{Wang:2008:ADD:1368088.1368151,
+ author = {Wang, Xiaoyin and Zhang, Lu and Xie, Tao and Anvik, John and Sun, Jiasu},
+ title = {An Approach to Detecting Duplicate Bug Reports Using Natural Language and Execution Information},
+ booktitle = {Proceedings of the 30th International Conference on Software Engineering},
+ series = {ICSE '08},
+ year = {2008},
+ isbn = {978-1-60558-079-1},
+ location = {Leipzig, Germany},
+ pages = {461--470},
+ numpages = {10},
+ acmid = {1368151},
+ 
+ address = {New York, NY, USA},
+ keywords = {duplicate bug report, execution information, information retrieval},
+}
+
+@INPROCEEDINGS{Bettenburg:2008:4658082, 
+ author={Bettenburg, Nicolas and Premraj, R. and Zimmermann, T. and Sunghun Kim}, 
+ booktitle={Software Maintenance, 2008. ICSM 2008. IEEE International Conference on}, 
+ title={Duplicate bug reports considered harmful #x2026; really?}, 
+ year={2008}, 
+ pages={337-345}, 
+ ISSN={1063-6773},
+}
+
+@inproceedings{Runeson:2007:DDD:1248820.1248882,
+ author = {Runeson, Per and Alexandersson, Magnus and Nyholm, Oskar},
+ title = {Detection of Duplicate Defect Reports Using Natural Language Processing},
+ booktitle = {Proceedings of the 29th International Conference on Software Engineering},
+ series = {ICSE '07},
+ year = {2007},
+ isbn = {0-7695-2828-7},
+ pages = {499--510},
+ numpages = {12},
+ acmid = {1248882},
+ 
+ address = {Washington, DC, USA},
+}
+
+@COMMENT{
+  Predict Code Changes.
+}
+
+@inproceedings{Zimmermann:2004:MVH:998675.999460,
+ author = {Zimmermann, Thomas and Weisgerber, Peter and Diehl, Stephan and Zeller, Andreas},
+ title = {Mining Version Histories to Guide Software Changes},
+ booktitle = {Proceedings of the 26th International Conference on Software Engineering},
+ series = {ICSE '04},
+ year = {2004},
+ isbn = {0-7695-2163-0},
+ pages = {563--572},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=998675.999460},
+ acmid = {999460},
+ 
+ address = {Washington, DC, USA},
+}
+
+@article{Ying:2004:PSC:1018037.1018388,
+ author = {Ying, Annie T. T. and Murphy, Gail C. and Ng, Raymond and Chu-Carroll, Mark C.},
+ title = {Predicting Source Code Changes by Mining Change History},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {September 2004},
+ volume = {30},
+ number = {9},
+ month = sep,
+ year = {2004},
+ issn = {0098-5589},
+ pages = {574--586},
+ numpages = {13},
+ acmid = {1018388},
+ 
+ address = {Piscataway, NJ, USA},
+ keywords = {65, Index Terms- Enhancement, Index Terms- Enhancement, maintainability, clustering, classification, association rules, data mining., association rules, classification, clustering, data mining., maintainability},
+}
+
+@COMMENT{
+  Semantic Model of Source Code.
+}
+
+@inproceedings{Nguyen:2013:SSL:2491411.2491458,
+ author = {Nguyen, Tung Thanh and Nguyen, Anh Tuan and Nguyen, Hoan Anh and Nguyen, Tien N.},
+ title = {A Statistical Semantic Language Model for Source Code},
+ booktitle = {Proceedings of the 2013 9th Joint Meeting on Foundations of Software Engineering},
+ series = {ESEC/FSE 2013},
+ year = {2013},
+ isbn = {978-1-4503-2237-9},
+ location = {Saint Petersburg, Russia},
+ pages = {532--542},
+ numpages = {11},
+ acmid = {2491458},
+ 
+ address = {New York, NY, USA},
+ keywords = {Code Completion, Statistical Semantic Language Model},
+}
+
+@COMMENT{
+  Threas to Validity -- The Design of Bug Fixes.
+}
+
+@inproceedings{Murphy-Hill:2013:DBF:2486788.2486833,
+ author = {Murphy-Hill, Emerson and Zimmermann, Thomas and Bird, Christian and Nagappan, Nachiappan},
+ title = {The Design of Bug Fixes},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ isbn = {978-1-4673-3076-3},
+ location = {San Francisco, CA, USA},
+ pages = {332--341},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2486788.2486833},
+ acmid = {2486833},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@COMMENT{
+  Threas to Validity --  Diversity.
+}
+
+@inproceedings{Nagappan:2013:DSE:2491411.2491415,
+ author = {Nagappan, Meiyappan and Zimmermann, Thomas and Bird, Christian},
+ title = {Diversity in Software Engineering Research},
+ booktitle = {Proceedings of the 2013 9th Joint Meeting on Foundations of Software Engineering},
+ series = {ESEC/FSE 2013},
+ year = {2013},
+ isbn = {978-1-4503-2237-9},
+ location = {Saint Petersburg, Russia},
+ pages = {466--476},
+ numpages = {11},
+ url = {http://doi.acm.org/10.1145/2491411.2491415},
+ acmid = {2491415},
+ 
+ address = {New York, NY, USA},
+ keywords = {Coverage, Diversity, Representativeness, Sampling},
+}
+
+@COMMENT{
+  Introduction -- Surveys in Industries.
+}
+
+@inproceedings{Bacchelli:2013:EOC:2486788.2486882,
+ author = {Bacchelli, Alberto and Bird, Christian},
+ title = {Expectations, Outcomes, and Challenges of Modern Code Review},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ isbn = {978-1-4673-3076-3},
+ location = {San Francisco, CA, USA},
+ pages = {712--721},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2486788.2486882},
+ acmid = {2486882},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Buse:2012:INS:2337223.2337343,
+ author = {Buse, Raymond P. L. and Zimmermann, Thomas},
+ title = {Information Needs for Software Development Analytics},
+ booktitle = {Proceedings of the 2012 International Conference on Software Engineering},
+ series = {ICSE 2012},
+ year = {2012},
+ isbn = {978-1-4673-1067-3},
+ location = {Zurich, Switzerland},
+ pages = {987--996},
+ numpages = {10},
+ acmid = {2337343},
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{LaToza:2010:HQC:1937117.1937125,
+ author = {LaToza, Thomas D. and Myers, Brad A.},
+ title = {Hard-to-answer Questions About Code},
+ booktitle = {Evaluation and Usability of Programming Languages and Tools},
+ series = {PLATEAU '10},
+ year = {2010},
+ isbn = {978-1-4503-0547-1},
+ location = {Reno, Nevada},
+ pages = {8:1--8:6},
+ articleno = {8},
+ numpages = {6},
+ acmid = {1937125},
+ 
+ address = {New York, NY, USA},
+ keywords = {developer questions, program comprehension},
+}
+
+@book{Bruegge:2009:OSE:1795808,
+ author = {Bruegge, Bernd and Dutoit, Allen H.},
+ title = {Object-Oriented Software Engineering Using UML, Patterns, and Java},
+ year = {2009},
+ isbn = {0136061257, 9780136061250},
+ edition = {3rd},
+ publisher = {Prentice Hall Press},
+ address = {Upper Saddle River, NJ, USA},
+}
+
+@COMMENT{
+  Background -- Process Metric is more important.
+}
+
+@inproceedings{Rahman:2013:WPM:2486788.2486846,
+ author = {Rahman, Foyzur and Devanbu, Premkumar},
+ title = {How, and Why, Process Metrics Are Better},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ isbn = {978-1-4673-3076-3},
+ location = {San Francisco, CA, USA},
+ pages = {432--441},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2486788.2486846},
+ acmid = {2486846},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@COMMENT{
+  Ranking SVM
+}
+
+@inproceedings{Joachims:2006:TLS:1150402.1150429,
+ author = {Joachims, Thorsten},
+ title = {Training Linear {SVM}s in Linear Time},
+ booktitle = {Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+ series = {KDD '06},
+ year = {2006},
+ isbn = {1-59593-339-5},
+ location = {Philadelphia, PA, USA},
+ pages = {217--226},
+ numpages = {10},
+ acmid = {1150429},
+ 
+ address = {New York, NY, USA},
+ keywords = {ROC-area, large-scale problems, ordinal regression, support vector machines (SVM), training algorithms},
+}
+
+@inproceedings{Joachims:2002:OSE:775047.775067,
+ author = {Joachims, Thorsten},
+ title = {Optimizing Search Engines Using Clickthrough Data},
+ booktitle = {Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+ series = {KDD '02},
+ year = {2002},
+ isbn = {1-58113-567-X},
+ location = {Edmonton, Alberta, Canada},
+ pages = {133--142},
+ numpages = {10},
+ acmid = {775067},
+ 
+ address = {New York, NY, USA},
+}
+
+@COMMENT{
+  Book
+}
+
+@book{Manning:2008:IIR:1394399,
+ author = {Manning, Christopher D. and Raghavan, Prabhakar and Sch\"{u}tze, Hinrich},
+ title = {Introduction to Information Retrieval},
+ year = {2008},
+ isbn = {0521865719, 9780521865715},
+ publisher = {Cambridge University Press},
+ address = {New York, NY, USA},
+}
+
+@INPROCEEDINGS{Voorhees99thetrec-8,
+    author = {Ellen M. Voorhees},
+    title = {The {TREC}-8 Question Answering Track Report},
+    booktitle = {In Proceedings of TREC-8},
+    year = {1999},
+    pages = {77--82}
+}
+
+@COMMENT{
+  Statistics
+}
+
+@article{mann1947,
+ajournal = "Ann. Math. Statist.",
+author = "Mann, H. B. and Whitney, D. R.",
+journal = "The Annals of Mathematical Statistics",
+month = "03",
+number = "1",
+pages = "50--60",
+title = "On a Test of Whether one of Two Random Variables is Stochastically Larger than the Other",
+url = "http://dx.doi.org/10.1214/aoms/1177730491",
+volume = "18",
+year = "1947"
+}
+
+
+@incollection{melville:eml10,
+  year={2010},
+  booktitle={Encyclopedia of Machine Learning},
+  editor={Sammut, Claude and Webb, GeoffreyI.},
+  title={Recommender Systems},
+  url={http://dx.doi.org/10.1007/978-0-387-30164-8_705},
+  author={Melville, Prem and Sindhwani, Vikas},
+  publisher={Springer US},
+  pages={829-838}
+}
+
+@COMMENT{
+  IR
+}
+
+@article{Blei:2003:LDA:944919.944937,
+ author = {Blei, David M. and Ng, Andrew Y. and Jordan, Michael I.},
+ title = {Latent {D}irichlet {A}llocation},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {3/1/2003},
+ volume = {3},
+ month = mar,
+ year = {2003},
+ issn = {1532-4435},
+ pages = {993--1022},
+ numpages = {30},
+ url = {http://dl.acm.org/citation.cfm?id=944919.944937},
+ acmid = {944937},
+}
+
+@COMMENT{
+  dataset
+}
+
+@misc{Ye2014,
+author = {Ye, Xin},
+month = mar,
+title = {{The dataset of six open source Java projects}},
+url = {http://figshare.com/articles/The\_dataset\_of\_six\_open\_source\_Java\_projects/951967},
+howpublished={http://dx.doi.org/10.6084/m9.figshare.951967},
+year = {2014}
+}
+
+@COMMENT{
+  pagerank
+}
+
+@techreport{ilprints422,
+          number = {1999-66},
+           month = {November},
+          author = {Lawrence Page and Sergey Brin and Rajeev Motwani and Terry Winograd},
+           title = {The {PageRank} Citation Ranking: Bringing Order to the Web.},
+            type = {Technical Report},
+            year = {1999},
+     institution = {Stanford InfoLab},
+             url = {http://ilpubs.stanford.edu:8090/422/},
+}
+
+@article{Kleinberg:1999:ASH:324133.324140,
+ author = {Kleinberg, Jon M.},
+ title = {Authoritative Sources in a Hyperlinked Environment},
+ journal = {J. ACM},
+ issue_date = {Sept. 1999},
+ volume = {46},
+ number = {5},
+ month = sep,
+ year = {1999},
+ issn = {0004-5411},
+ pages = {604--632},
+ numpages = {29},
+ acmid = {324140},
+ 
+ address = {New York, NY, USA},
+ keywords = {World Wide Web, graph algorithms, hypertext structure, link analysis},
+}
+
+@COMMENT{
+  identifier
+}
+
+@inproceedings{Enslen:2009:MSC:1590955.1591139,
+ author = {Enslen, Eric and Hill, Emily and Pollock, Lori and Vijay-Shanker, K.},
+ title = {Mining Source Code to Automatically Split Identifiers for Software Analysis},
+ booktitle = {Proceedings of the 2009 6th IEEE International Working Conference on Mining Software Repositories},
+ series = {MSR '09},
+ year = {2009},
+ isbn = {978-1-4244-3493-0},
+ pages = {71--80},
+ numpages = {10},
+ acmid = {1591139},
+ 
+ address = {Washington, DC, USA},
+}
+
+@COMMENT{
+  feature selection
+}
+
+@article{Shivaji:2013:RFI:2498738.2498858,
+ author = {Shivaji, Shivkumar and Whitehead,Jr., E. James and Akella, Ram and Kim, Sunghun},
+ title = {Reducing Features to Improve Code Change-Based Bug Prediction},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {April 2013},
+ volume = {39},
+ number = {4},
+ month = apr,
+ year = {2013},
+ issn = {0098-5589},
+ pages = {552--569},
+ numpages = {18},
+ acmid = {2498858},
+ 
+ address = {Piscataway, NJ, USA},
+}
+
+@inproceedings{Daume:2005:LEE:1220575.1220588,
+ author = {Daum{\'e},III, Hal and Marcu, Daniel},
+ title = {A Large-scale Exploration of Effective Global Features for a Joint Entity Detection and Tracking Model},
+ booktitle = {Proceedings of the Conference on Human Language Technology and Empirical Methods in Natural Language Processing},
+ series = {HLT '05},
+ year = {2005},
+ location = {Vancouver, British Columbia, Canada},
+ pages = {97--104},
+ numpages = {8},
+ acmid = {1220588},
+ address = {Stroudsburg, PA, USA},
+}
+
+@inproceedings{McCallum:2002:EIF:2100584.2100633,
+ author = {McCallum, Andrew},
+ title = {Efficiently Inducing Features of Conditional Random Fields},
+ booktitle = {Proceedings of the Nineteenth Conference on Uncertainty in Artificial Intelligence},
+ series = {UAI'03},
+ year = {2003},
+ isbn = {0-127-05664-5},
+ location = {Acapulco, Mexico},
+ pages = {403--410},
+ numpages = {8},
+ url = {http://dl.acm.org/citation.cfm?id=2100584.2100633},
+ acmid = {2100633},
+ address = {San Francisco, CA, USA},
+}
+
+@article{Reunanen:2003:OMC:944919.944978,
+ author = {Reunanen, Juha},
+ title = {Overfitting in Making Comparisons Between Variable Selection Methods},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {3/1/2003},
+ volume = {3},
+ month = mar,
+ year = {2003},
+ issn = {1532-4435},
+ pages = {1371--1382},
+ numpages = {12},
+ url = {http://dl.acm.org/citation.cfm?id=944919.944978},
+ acmid = {944978},
+}
+
+@article{Whitney:1971:DMN:1311084.1311492,
+ author = {Whitney, A. W.},
+ title = {A Direct Method of Nonparametric Measurement Selection},
+ journal = {IEEE Trans. Comput.},
+ issue_date = {September 1971},
+ volume = {20},
+ number = {9},
+ month = sep,
+ year = {1971},
+ issn = {0018-9340},
+ pages = {1100--1103},
+ numpages = {4},
+ acmid = {1311492},
+ 
+ address = {Washington, DC, USA},
+ keywords = {Feature space evaluation, measurement (feature) selection, nearest neighbor rule, pattern classification.},
+}
+
+@article{Kohavi:1997:WFS:270613.270627,
+ author = {Kohavi, Ron and John, George H.},
+ title = {Wrappers for Feature Subset Selection},
+ journal = {Artif. Intell.},
+ issue_date = {Dec. 1997},
+ volume = {97},
+ number = {1-2},
+ month = dec,
+ year = {1997},
+ issn = {0004-3702},
+ pages = {273--324},
+ numpages = {52},
+ acmid = {270627},
+ address = {Essex, UK},
+ keywords = {classification, feature seleciton, filter, wrapper},
+}
+
+@article{Ramaswamy18122001,
+author = {Ramaswamy, Sridhar and Tamayo, Pablo and Rifkin, Ryan and Mukherjee, Sayan and Yeang, Chen-Hsiang and Angelo, Michael and Ladd, Christine and Reich, Michael and Latulippe, Eva and Mesirov, Jill P. and Poggio, Tomaso and Gerald, William and Loda, Massimo and Lander, Eric S. and Golub, Todd R.}, 
+title = {Multiclass cancer diagnosis using tumor gene expression signatures},
+volume = {98}, 
+number = {26}, 
+pages = {15149-15154}, 
+year = {2001},  
+abstract ={The optimal treatment of patients with cancer depends on
+ establishing accurate diagnoses by using a complex combination of
+ clinical and histopathological data. In some instances, this task is
+ difficult or impossible because of atypical clinical presentation or
+ histopathology. To determine whether the diagnosis of multiple common
+ adult malignancies could be achieved purely by molecular
+ classification, we subjected 218 tumor samples, spanning 14
+ common tumor types, and 90 normal tissue samples to oligonucleotide
+ microarray gene expression analysis. The expression levels of 16,063
+ genes and expressed sequence tags were used to evaluate the accuracy of
+ a multiclass classifier based on a support vector machine algorithm.
+ Overall classification accuracy was 78%, far exceeding the accuracy of
+ random classification (9%). Poorly differentiated cancers resulted in
+ low-confidence predictions and could not be accurately classified
+ according to their tissue of origin, indicating that they are
+ molecularly distinct entities with dramatically different gene
+ expression patterns compared with their well differentiated
+ counterparts. Taken together, these results demonstrate the feasibility
+ of accurate, multiclass molecular cancer classification and suggest a
+ strategy for future clinical implementation of molecular cancer
+ diagnostics.}, 
+URL = {http://www.pnas.org/content/98/26/15149.abstract}, 
+eprint = {http://www.pnas.org/content/98/26/15149.full.pdf+html}, 
+journal = {Proceedings of the National Academy of Sciences} 
+}
+
+@article{Dit:2013:ESE,
+year={2013},
+issn={1382-3256},
+journal={Empirical Software Engineering},
+volume={18},
+number={2},
+title={Integrating information retrieval, execution and link analysis algorithms to improve feature location in software},
+url={http://dx.doi.org/10.1007/s10664-011-9194-4},
+keywords={Concept location; Feature identification; Information retrieval; Web mining; Program comprehension; Software evolution and maintenance},
+author={Dit, Bogdan and Revelle, Meghan and Poshyvanyk, Denys},
+pages={277-309},
+language={English}
+}
+
+@inproceedings{Metzler:2005:MRF:1076034.1076115,
+ author = {Metzler, Donald and Croft, W. Bruce},
+ title = {A Markov Random Field Model for Term Dependencies},
+ booktitle = {Proceedings of the 28th Annual International ACM SIGIR Conference on Research and Development in Information Retrieval},
+ series = {SIGIR '05},
+ year = {2005},
+ isbn = {1-59593-034-5},
+ location = {Salvador, Brazil},
+ pages = {472--479},
+ numpages = {8},
+ acmid = {1076115},
+ 
+ address = {New York, NY, USA},
+ keywords = {Markov random fields, information retrieval, phrases, term dependence},
+}
+
+@article{Brin:1998:ALH:297810.297827,
+ author = {Brin, Sergey and Page, Lawrence},
+ title = {The Anatomy of a Large-scale Hypertextual Web Search Engine},
+ journal = {Comput. Netw. ISDN Syst.},
+ issue_date = {April 1, 1998},
+ volume = {30},
+ number = {1-7},
+ month = apr,
+ year = {1998},
+ issn = {0169-7552},
+ pages = {107--117},
+ numpages = {11},
+ acmid = {297827},
+ address = {Amsterdam, The Netherlands, The Netherlands},
+ keywords = {Google, PageRank, World Wide Web, information retrieval, search engines},
+} 
+
+@inproceedings{Brin:1998:ALH:297805.297827,
+ author = {Brin, Sergey and Page, Lawrence},
+ title = {The Anatomy of a Large-scale Hypertextual Web Search Engine},
+ booktitle = {Proceedings of the Seventh International Conference on World Wide Web 7},
+ series = {WWW7},
+ year = {1998},
+ location = {Brisbane, Australia},
+ pages = {107--117},
+ numpages = {11},
+ url = {http://dl.acm.org/citation.cfm?id=297805.297827},
+ acmid = {297827},
+ address = {Amsterdam, The Netherlands, The Netherlands},
+ keywords = {Google, PageRank, World Wide Web, information retrieval, search engines},
+}
+
+**********************************************************************************
+
+@COMMENT{
+  introduction
+}
+
+@inproceedings{marcus2012use,
+  title={On the use of text retrieval techniques in software engineering},
+  author={Marcus, A and Antoniol, G},
+  booktitle={Proceedings of 34th IEEE/ACM International Conference on Software Engineering, Technical Briefing},
+  year={2012}
+}
+
+@inproceedings{Marcus:2004:IRA:1038267.1039053,
+ author = {Marcus, Andrian and Sergeyev, Andrey and Rajlich, Vaclav and Maletic, Jonathan I.},
+ title = {An Information Retrieval Approach to Concept Location in Source Code},
+ booktitle = {Proc. WCRE '04},
+ year = {2004},
+ isbn = {0-7695-2243-2},
+ pages = {214--223},
+ numpages = {10},
+ acmid = {1039053},
+}
+
+@inproceedings{Haiduc:2013:AQR:2486788.2486898,
+ author = {Haiduc, Sonia and Bavota, Gabriele and Marcus, Andrian and Oliveto, Rocco and De Lucia, Andrea and Menzies, Tim},
+ title = {Automatic Query Reformulations for Text Retrieval in Software Engineering},
+ booktitle = {Proceedings of the 2013 International Conference on Software Engineering},
+ series = {ICSE '13},
+ year = {2013},
+ isbn = {978-1-4673-3076-3},
+ location = {San Francisco, CA, USA},
+ pages = {842--851},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2486788.2486898},
+ acmid = {2486898},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+}
+
+@ARTICLE{5989838, 
+author={McMillan, C. and Grechanik, M. and Poshyvanyk, D. and Chen Fu and Xie, Qing}, 
+journal={Software Engineering, IEEE Transactions on}, 
+title={Exemplar: A Source Code Search Engine for Finding Highly Relevant Applications}, 
+year={2012}, 
+month={Sept}, 
+volume={38}, 
+number={5}, 
+pages={1069-1087}, 
+keywords={application program interfaces;data flow analysis;document handling;natural language processing;project management;query processing;software management;software reusability;system documentation;API call;API document;Exemplar;application description ranking;application programming interface;dataflow;development task;executable examples archive;natural-language query;search quality;software application;software project;software reuse;source code search engine;Cryptography;Data mining;Engines;Java;Search engines;Software;Vocabulary;Source code search engines;concept location;information retrieval;mining software repositories;open source software;software reuse}, 
+doi={10.1109/TSE.2011.84}, 
+ISSN={0098-5589},
+}
+
+@article{parnin2012crowd,
+title={Crowd documentation: Exploring the coverage and the dynamics of API discussions on Stack Overflow},
+author={Parnin, Chris and Treude, Christoph and Grammel, Lars and Storey, Margaret-Anne},
+journal={Technical Report GIT-CS-12-05, Georgia Institute of Technology},
+year={2012}, 
+month={May}, 
+}
+
+@inproceedings{Chen:2014:AIC:2591062.2591128,
+ author = {Chen, Cong and Zhang, Kang},
+ title = {Who Asked What: Integrating Crowdsourced FAQs into API Documentation},
+ booktitle = {Companion Proceedings of the 36th International Conference on Software Engineering},
+ series = {ICSE Companion 2014},
+ year = {2014},
+ isbn = {978-1-4503-2768-8},
+ location = {Hyderabad, India},
+ pages = {456--459},
+ numpages = {4},
+ url = {http://doi.acm.org/10.1145/2591062.2591128},
+ doi = {10.1145/2591062.2591128},
+ acmid = {2591128},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {API, crowdsourcing, documentation, search, social media},
+} 
+
+@inproceedings{Subramanian:2014:LAD:2568225.2568313,
+ author = {Subramanian, Siddharth and Inozemtseva, Laura and Holmes, Reid},
+ title = {Live API Documentation},
+ booktitle = {Proceedings of the 36th International Conference on Software Engineering},
+ series = {ICSE 2014},
+ year = {2014},
+ isbn = {978-1-4503-2756-5},
+ location = {Hyderabad, India},
+ pages = {643--652},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/2568225.2568313},
+ doi = {10.1145/2568225.2568313},
+ acmid = {2568313},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Source code examples, documentation, source code search},
+}
+
+@inproceedings{Tian:2014:SSW:2591062.2591071,
+ author = {Tian, Yuan and Lo, David and Lawall, Julia},
+ title = {{SEWordSim}: Software-specific Word Similarity Database},
+ booktitle = {Companion Proceedings of the 36th International Conference on Software Engineering},
+ series = {ICSE Companion 2014},
+ year = {2014},
+ isbn = {978-1-4503-2768-8},
+ location = {Hyderabad, India},
+ pages = {568--571},
+ numpages = {4},
+ url = {http://doi.acm.org/10.1145/2591062.2591071},
+ doi = {10.1145/2591062.2591071},
+ acmid = {2591071},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Database, SEWordSim, Word Similarity},
+}
+
+@INPROCEEDINGS{6747213, 
+author={Yuan Tian and Lo, D. and Lawall, J.}, 
+booktitle={Software Maintenance, Reengineering and Reverse Engineering (CSMR-WCRE), 2014 Software Evolution Week - IEEE Conference on}, 
+title={Automated construction of a software-specific word similarity database}, 
+year={2014}, 
+month={Feb}, 
+pages={44-53}, 
+keywords={database management systems;natural language processing;program debugging;software engineering;StackOverflow;WordNet;WordSimSEDB;automated construction;automated software engineering;bug report categorization;code search;duplicate bug report detection;lexical database;natural language contents;natural language processing;software-specific word similarity database;Java;Measurement;Semantics;Software;Software engineering;Tuning;Vectors}, 
+doi={10.1109/CSMR-WCRE.2014.6747213},
+}
+
+@article{Yang:2014:SIS:2683115.2683138,
+ author = {Yang, Jinqiu and Tan, Lin},
+ title = {{SWordNet}: Inferring Semantically Related Words from Software Context},
+ journal = {Empirical Softw. Engg.},
+ issue_date = {December  2014},
+ volume = {19},
+ number = {6},
+ month = dec,
+ year = {2014},
+ issn = {1382-3256},
+ pages = {1856--1886},
+ numpages = {31},
+ url = {http://dx.doi.org/10.1007/s10664-013-9264-x},
+ doi = {10.1007/s10664-013-9264-x},
+ acmid = {2683138},
+ publisher = {Kluwer Academic Publishers},
+ address = {Hingham, MA, USA},
+ keywords = {Code search, Program comprehension, Semantically related words},
+}
+
+@inproceedings{Howard:2013:AMS:2487085.2487155,
+ author = {Howard, Matthew J. and Gupta, Samir and Pollock, Lori and Vijay-Shanker, K.},
+ title = {Automatically Mining Software-based, Semantically-similar Words from Comment-code Mappings},
+ booktitle = {Proceedings of the 10th Working Conference on Mining Software Repositories},
+ series = {MSR '13},
+ year = {2013},
+ isbn = {978-1-4673-2936-1},
+ location = {San Francisco, CA, USA},
+ pages = {377--386},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=2487085.2487155},
+ acmid = {2487155},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+}
+
+@INPROCEEDINGS{6224276, 
+author={Jinqiu Yang and Lin Tan}, 
+booktitle={Mining Software Repositories (MSR), 2012 9th IEEE Working Conference on}, 
+title={Inferring semantically related words from software context}, 
+year={2012}, 
+month={June}, 
+pages={161-170}, 
+keywords={C language;Java;query processing;software engineering;word processing;C language;English dictionaries;Java;WordNet;abbreviations;code search;keyword-based code search;program comprehension;semantically related word inference;software context;software development;synonyms;Context;Dictionaries;Gold;Java;Kernel;Linux;Semantically related words;code search;program comprehension}, 
+doi={10.1109/MSR.2012.6224276}, 
+ISSN={2160-1852},
+}
+
+@inproceedings{baroni-etal-2014b,
+    address = {Baltimore, Maryland},
+    author = {Baroni, Marco and Dinu, Georgiana and Kruszewski, Germ\'{a}n},
+    booktitle = {Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+    citeulike-article-id = {13652873},
+    citeulike-linkout-0 = {http://www.aclweb.org/anthology/P14-1023},
+    keywords = {semantics},
+    month = jun,
+    pages = {238--247},
+    posted-at = {2015-06-21 22:43:49},
+    priority = {2},
+    publisher = {Association for Computational Linguistics},
+    title = {{Don't count, predict! A systematic comparison of context-counting vs. context-predicting semantic vectors}},
+    url = {http://www.aclweb.org/anthology/P14-1023},
+    year = {2014}
+}
+
+@inproceedings{mihalcea:aaai06,
+ author = {Mihalcea, Rada and Corley, Courtney and Strapparava, Carlo},
+ title = {Corpus-based and knowledge-based measures of text semantic similarity},
+ booktitle = {Proceedings of the 21st national conference on Artificial intelligence (AAAI'06)},
+ year = {2006},
+ pages = {775--780},
+ location = {Boston, Massachusetts},
+ publisher = {AAAI Press},
+}
+
+@inproceedings{mikolov:nips13, 
+Author = {Tomas Mikolov and Ilya Sutskever and Kai Chen and Greg S. Corrado and Jeff Dean},
+journal = {Advances in Neural Information Processing Systems 26}, 
+Title = {Distributed Representations of Words and Phrases and their Compositionality},
+Year = {2013}, 
+Pages = {3111--3119},
+}
+
+**********************************************************************************
+
+@COMMENT{
+  related work
+}
+
+@article{harris:word54,
+  added-at = {2010-08-05T14:23:58.000+0200},
+  author = {Harris, Zellig},
+  biburl = {http://www.bibsonomy.org/bibtex/252e7950c31610617170d71c320f2252e/tgunkel},
+  interhash = {a23596808b6273076e1259dedca16330},
+  intrahash = {52e7950c31610617170d71c320f2252e},
+  journal = {Word},
+  key = {Harris},
+  keywords = {diplom distributional},
+  number = 23,
+  pages = {146--162},
+  timestamp = {2010-08-05T14:23:59.000+0200},
+  title = {Distributional structure},
+  volume = 10,
+  year = 1954
+}
+
+@incollection{NIPS2014_5477,
+title = {Neural Word Embedding as Implicit Matrix Factorization},
+author = {Levy, Omer and Goldberg, Yoav},
+booktitle = {Advances in Neural Information Processing Systems 27},
+editor = {Z. Ghahramani and M. Welling and C. Cortes and N.D. Lawrence and K.Q. Weinberger},
+pages = {2177--2185},
+year = {2014},
+publisher = {Curran Associates, Inc.},
+url = {http://papers.nips.cc/paper/5477-neural-word-embedding-as-implicit-matrix-factorization.pdf}
+}
+
+@inproceedings{Pantel:2002:DWS:775047.775138,
+ author = {Pantel, Patrick and Lin, Dekang},
+ title = {Discovering Word Senses from Text},
+ booktitle = {Proceedings of the Eighth ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+ series = {KDD '02},
+ year = {2002},
+ isbn = {1-58113-567-X},
+ location = {Edmonton, Alberta, Canada},
+ pages = {613--619},
+ numpages = {7},
+ url = {http://doi.acm.org/10.1145/775047.775138},
+ doi = {10.1145/775047.775138},
+ acmid = {775138},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {clustering, evaluation, machine learning, word sense discovery},
+}
+
+@article{landauer_solution_1997,
+  added-at = {2009-03-26T02:27:27.000+0100},
+  author = {{LANDAUER}, {TK} and {DUMAIS}, {ST}},
+  biburl = {http://www.bibsonomy.org/bibtex/264a15051245f4da439e8c315d8edd681/infospace},
+  interhash = {62e934c46a819d075cf9e49a0646b84e},
+  intrahash = {64a15051245f4da439e8c315d8edd681},
+  journal = {Psychological review},
+  keywords = {induction knowledge semantic},
+  number = 2,
+  pages = {211--240},
+  timestamp = {2009-03-26T02:29:30.000+0100},
+  title = {A solution to Plato's problem: The latent semantic analysis theory of acquisition, induction, and representation of knowledge},
+  volume = 104,
+  year = 1997
+}
+
+@article{Bengio:2003:NPL:944919.944966,
+ author = {Bengio, Yoshua and Ducharme, R{\'e}jean and Vincent, Pascal and Janvin, Christian},
+ title = {A Neural Probabilistic Language Model},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {3/1/2003},
+ volume = {3},
+ month = mar,
+ year = {2003},
+ issn = {1532-4435},
+ pages = {1137--1155},
+ numpages = {19},
+ url = {http://dl.acm.org/citation.cfm?id=944919.944966},
+ acmid = {944966},
+ publisher = {JMLR.org},
+}
+
+@inproceedings{Collobert:2008:UAN:1390156.1390177,
+ author = {Collobert, Ronan and Weston, Jason},
+ title = {A Unified Architecture for Natural Language Processing: Deep Neural Networks with Multitask Learning},
+ booktitle = {Proceedings of the 25th International Conference on Machine Learning},
+ series = {ICML '08},
+ year = {2008},
+ isbn = {978-1-60558-205-4},
+ location = {Helsinki, Finland},
+ pages = {160--167},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1390156.1390177},
+ doi = {10.1145/1390156.1390177},
+ acmid = {1390177},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+@article{Collobert:2011:NLP:1953048.2078186,
+ author = {Collobert, Ronan and Weston, Jason and Bottou, L{\'e}on and Karlen, Michael and Kavukcuoglu, Koray and Kuksa, Pavel},
+ title = {Natural Language Processing (Almost) from Scratch},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {2/1/2011},
+ volume = {12},
+ month = nov,
+ year = {2011},
+ issn = {1532-4435},
+ pages = {2493--2537},
+ numpages = {45},
+ url = {http://dl.acm.org/citation.cfm?id=1953048.2078186},
+ acmid = {2078186},
+ publisher = {JMLR.org},
+} 
+
+@Inproceedings {export:189726,
+author       = {Tomas Mikolov and Wen-tau Yih and Geoffrey Zweig},
+booktitle    = {Proceedings of the 2013 Conference of the North American Chapter of the
+                Association for Computational Linguistics: Human Language Technologies
+                (NAACL-HLT-2013)},
+month        = {May},
+publisher    = {Association for Computational Linguistics},
+title        = {Linguistic Regularities in Continuous Space Word Representations},
+url          = {http://research.microsoft.com/apps/pubs/default.aspx?id=189726},
+year         = {2013},
+}
+
+@inproceedings{Wang:2012:ISR:2473496.2473617,
+ author = {Wang, Shaowei and Lo, David and Jiang, Lingxiao},
+ title = {Inferring Semantically Related Software Terms and Their Taxonomy by Leveraging Collaborative Tagging},
+ booktitle = {Proceedings of the 2012 IEEE International Conference on Software Maintenance (ICSM)},
+ series = {ICSM '12},
+ year = {2012},
+ isbn = {978-1-4673-2313-0},
+ pages = {604--607},
+ numpages = {4},
+ url = {http://dx.doi.org/10.1109/ICSM.2012.6405332},
+ doi = {10.1109/ICSM.2012.6405332},
+ acmid = {2473617},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+ keywords = {Taxonomy,Software,Measurement,Software engineering,Semantics,Clustering algorithms,Tagging},
+}
+
+@inproceedings{Joachims:2002:OSE:775047.775067,
+ author = {Joachims, Thorsten},
+ title = {Optimizing Search Engines Using Clickthrough Data},
+ booktitle = {Proc. KDD '02},
+ year = {2002},
+ isbn = {1-58113-567-X},
+ location = {Edmonton, Alberta, Canada},
+ pages = {133--142},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/775047.775067},
+ doi = {10.1145/775047.775067},
+ acmid = {775067},
+}
+
+@INPROCEEDINGS{Voorhees99thetrec-8,
+    author = {Ellen M. Voorhees},
+    title = {The {TREC}-8 Question Answering Track Report},
+    booktitle = {Proc. TREC-8},
+    year = {1999},
+    pages = {77--82}
+}
+
+@inproceedings{Kochhar:2014:PBB:2642937.2642997,
+ author = {Kochhar, Pavneet Singh and Tian, Yuan and Lo, David},
+ title = {Potential Biases in Bug Localization: Do They Matter?},
+ booktitle = {Proceedings of the 29th ACM/IEEE International Conference on Automated Software Engineering},
+ series = {ASE '14},
+ year = {2014},
+ isbn = {978-1-4503-3013-8},
+ location = {Vasteras, Sweden},
+ pages = {803--814},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/2642937.2642997},
+ doi = {10.1145/2642937.2642997},
+ acmid = {2642997},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {bias, bug localization, empirical study, issue reports},
+}
+
+@inproceedings{Hermann:2014:ACLphil,
+  author    = {Hermann, Karl Moritz and Blunsom, Phil},
+  title     = {{Multilingual Models for Compositional Distributional Semantics}},
+  booktitle = {Proceedings of ACL},
+  year      = {2014},
+  month     = jun,
+  url       = {http://arxiv.org/abs/1404.4641},
+}
+
+@inproceedings{icml2015_kusnerb15, 
+   Publisher = {JMLR Workshop and Conference Proceedings}, 
+   title="From Word Embeddings To Document Distances", 
+   Author={Kusner, Matt and Sun, Yu and Kolkin, Nicholas and Weinberger, Kilian Q.}, 
+   year="2015", 
+   Booktitle="Proceedings of the 32nd International Conference on Machine Learning (ICML-15)", 
+   Editor={David Blei and Francis Bach}, 
+   pages="957-966", 
+   url="http://jmlr.org/proceedings/papers/v37/kusnerb15.pdf" 
+   }
+
+@inproceedings{Mikolov:ICLR,
+ author = {Tomas Mikolov and Kai Chen and Greg Corrado and Jeffrey Dean},
+ title = {Efficient Estimation of Word Representations in Vector Space},
+ booktitle = {Proc. of Workshop at ICLR '13},
+ year = {2013},
+}
+
+@inproceedings{DBLP:conf/icml/LeM14,
+  author    = {Quoc V. Le and
+               Tomas Mikolov},
+  title     = {Distributed Representations of Sentences and Documents},
+  booktitle = {Proceedings of the 31th International Conference on Machine Learning,
+               {ICML} 2014, Beijing, China, 21-26 June 2014},
+  pages     = {1188--1196},
+  year      = {2014},
+  crossref  = {DBLP:conf/icml/2014},
+  url       = {http://jmlr.org/proceedings/papers/v32/le14.html},
+  timestamp = {Fri, 07 Nov 2014 20:42:30 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/LeM14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Kuo:2009:LRB:1645953.1646058,
+ author = {Kuo, Jen-Wei and Cheng, Pu-Jen and Wang, Hsin-Min},
+ title = {Learning to Rank from Bayesian Decision Inference},
+ booktitle = {Proceedings of the 18th ACM Conference on Information and Knowledge Management},
+ series = {CIKM '09},
+ year = {2009},
+ isbn = {978-1-60558-512-3},
+ location = {Hong Kong, China},
+ pages = {827--836},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1645953.1646058},
+ doi = {10.1145/1645953.1646058},
+ acmid = {1646058},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {learning to rank, ranking function},
+}
+
+@inproceedings{Sculley:2010:CRR:1835804.1835928,
+ author = {Sculley, D.},
+ title = {Combined Regression and Ranking},
+ booktitle = {Proceedings of the 16th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+ series = {KDD '10},
+ year = {2010},
+ isbn = {978-1-4503-0055-1},
+ location = {Washington, DC, USA},
+ pages = {979--988},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/1835804.1835928},
+ doi = {10.1145/1835804.1835928},
+ acmid = {1835928},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {large-scale data, ranking, regression},
+}
