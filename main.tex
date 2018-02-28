@@ -1,6 +1,10 @@
 \documentclass[sigconf, review, anonymous]{acmart}
 
 \usepackage{booktabs} % For formal tables
+\usepackage{adjustbox}
+
+\newcommand\Tstrut{\rule{0pt}{2.2ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.7ex]{0pt}{0pt}}   % = `bottom' strut
 
 % Copyright
 \setcopyright{rightsretained}
@@ -31,15 +35,14 @@
 }
 \email{fang014@cougars.csusm.edu}
 
-\author{Bartosh Sudak}
+\author{Razvan Bunescu}
 \affiliation{%
-  \institution{California State University San Marcos}
-  \streetaddress{333 N Twin Oaks Valley Rd}
-  \city{San Marcos}
-  \state{California}
-  \postcode{92069}
+  \institution{Ohio University}
+  \city{Athens}
+  \state{Ohio}
+  \postcode{45701}
 }
-\email{bartoshsudak@gmail.com}
+\email{bunescu@ohio.edu}
 
 \author{John Wu}
 \affiliation{%
@@ -51,6 +54,16 @@
 }
 \email{wu028@cougars.csusm.edu}
 
+\author{Bartosh Sudak}
+\affiliation{%
+  \institution{California State University San Marcos}
+  \streetaddress{333 N Twin Oaks Valley Rd}
+  \city{San Marcos}
+  \state{California}
+  \postcode{92069}
+}
+\email{bartoshsudak@gmail.com}
+
 \author{Hui Shen}
 \affiliation{%
   \institution{Ohio University}
@@ -59,15 +72,6 @@
   \postcode{45701}
 }
 \email{hs138609@ohio.edu}
-
-\author{Razvan Bunescu}
-\affiliation{%
-  \institution{Ohio University}
-  \city{Athens}
-  \state{Ohio}
-  \postcode{45701}
-}
-\email{bunescu@ohio.edu}
 
 \author{Chang Liu}
 \affiliation{%
@@ -122,6 +126,7 @@ This project will publish a practical defect positioning system that can be used
 \maketitle
 
 \input{sections/introduction}
+\input{sections/evaluation}
 \input{sections/related-work}
 \input{sections/future-work}
 \input{sections/conclusion}
