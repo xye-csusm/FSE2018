@@ -2229,15 +2229,12 @@ Computing Machinery]
     \@acmNumber, Article \@acmArticle.  Publication date: \@acmPubDate.}%
   \else % Proceedings
     \fancyfoot[C]{\if@ACM@printfolios\footnotesize\thepage\fi}%
-    %\fancyhead[LO]{\ACM@linecountL\@headfootfont\shorttitle}%
-    \fancyhead[LO]{\ACM@linecountL\@headfootfont\acmConference@shortname,
-      \acmConference@date, \acmConference@venue}%
+    \fancyhead[LO]{\ACM@linecountL\@headfootfont\shorttitle}%
     \fancyhead[RE]{\@headfootfont\@shortauthors\ACM@linecountR}%
     \fancyhead[LE]{\ACM@linecountL\@headfootfont\acmConference@shortname,
       \acmConference@date, \acmConference@venue}%
-    %\fancyhead[RO]{\@headfootfont\acmConference@shortname,
-      %\acmConference@date, \acmConference@venue\ACM@linecountR}%
-    \fancyhead[RO]{\@headfootfont\@shortauthors\ACM@linecountR}%
+    \fancyhead[RO]{\@headfootfont\acmConference@shortname,
+      \acmConference@date, \acmConference@venue\ACM@linecountR}%
   \fi
   \if@ACM@sigchiamode
      \fancyheadoffset[L]{\dimexpr(\marginparsep+\marginparwidth)}%
