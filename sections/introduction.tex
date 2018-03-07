@@ -14,15 +14,15 @@ As such, for low-quality reports and reports that do not semantically relate to 
 
 Kim et al. \cite{Kim:2013:WFT:2554428.2554437} proposed a two-phase model that first classifies bug reports into either ``predictable'' or ``deficient'' and then locates bugs for only ``predictable'' reports. Their model uses fixed buggy files as labels and applies Na\"{i}ve Bayes to classify a ``predictable'' report to a specific label (buggy file). However, if a new buggy file has not been fixed before, it would not be considered as a label and hence cannot not be located. Despite of this problem, Kim's work inspire us to, before applying a specific IR-based system to find the bug, perform classification to filter out deficient reports and reports that are unhelpful to the IR-based system.
 
-This paper proposes a Long Short-Term Memory (LSTM)-based pre-filtering approach to classify bug reports as either ``predictable'' or ``unpredictable''. A LSTM network is a Recurrent Neural Network (RNN) with LSTM cells \cite{Hochreiter:1997:LSM:1246443.1246450} for learning features for sequence data. It has been recently used in the Software Engineering (SE) domain to solve SE problems \cite{8255666, Huo:2017:EUF:3172077.3172153}. We use LSTM to learn from bug reports their vector representations, which are then serve as input \textit{features} to a \textit{Softmax} layer for classification. If a bug report is classified as ``predictable'', we use an existing IR-based system to help locate the bug for it, otherwise, we keep silent.
+This paper proposes a Long Short-Term Memory (LSTM)-based pre-filtering approach to classify bug reports as either ``predictable'' or ``unpredictable''. An LSTM network is a Recurrent Neural Network (RNN) with LSTM units \cite{Hochreiter:1997:LSM:1246443.1246450} for learning features from sequence data. It has been recently used in the Software Engineering (SE) domain to solve SE problems \cite{8255666, Huo:2017:EUF:3172077.3172153}. We use LSTM to learn from bug reports their vector representations, which are then serve as input \textit{features} to a \textit{Softmax} layer for classification. If a bug report is classified as ``predictable'', we use an existing IR-based system to help locate the bug for it, otherwise, we keep silent.
 
-We test our classification approach on over 11,000 bug reports from four large-scale open source Java projects. Experiments show that, under a trade-off between the classification recall and precision, our approach can help an IR-based bug-locating system achieve better ranking result.
+We test our classification approach over 11,000 bug reports from four large-scale open source Java projects. Experiments show that, under a trade-off between the classification recall and precision, our approach can help an IR-based bug-locating system achieve better ranking result.
 
 We also perform evaluations to compare LSTM with Convolutional Neural Network (CNN) \cite{726791} (another class of DNN that is recently used to solve SE tasks \cite{Le:2015:IRS:2786805.2786880, Xu:2016:PSL:2970276.2970357, Mou:2016:CNN:3015812.3016002}), Perceptron \cite{Freund:1999:LMC:337859.337869, r-ppmisob-58}, and a simple baseline approach classifying a bug report based on its length with the assumption that larger content may contain more helpful information. Results show that the simple baseline approach can achieve comparably result with Perceptron. LSTM and CNN perform better than the others. LSTM achieves the best trade-off between precision and recall. 
 
-The main contributions of this paper include: a bug report pre-filtering model to filter out ``unpredictable'' reports before running an IR-based system for bug locating; an adaptation of LSTM in the task of bug report classification; extensive evaluations to compare the effectiveness of LSTM with CNN, Perceptron, and a simple baseline approach in this task.
+The main contributions of this paper include: a bug report pre-filtering model to filter out ``unpredictable'' reports before running an IR-based system for bug locating; an adaptation of LSTM in the task of bug report classification; extensive evaluations to compare the effectiveness of LSTM with CNN, Perceptron, and a simple baseline approach.
 
-The rest of this paper is structured as follows. Section 2 draws an overall picture of the pre-filtering model for bug locating. Section 3 introduces the adaptation of LSTM for bug report classification with details. Section 4 introduces CNN, Perceptron, and a simple baseline approach that are used for comparisons. Section 5 presents the evaluation setup and result. Following a discussion of related work in Section 6, the paper ends in Section 7 with future work and conclusion.
+The rest of this paper is structured as follows. Section 2 draws an overall picture of the pre-filtering model for bug locating. Section 3 details the adaptation of an LSTM network for bug report classification. Section 4 introduces CNN, Perceptron, and a simple baseline approach used for comparisons. Section 5 presents the evaluation setup and result. Following a discussion of related work in Section 6, the paper ends in Section 7 with future work and concluding remark.
 
 \section{High Level Architecture of Bug Report Pre-Filtering}
 \label{sec:high level architecture}
@@ -34,15 +34,81 @@ The rest of this paper is structured as follows. Section 2 draws an overall pict
 \end{figure}
 Figure~\ref{fig:prefiltering architecture} shows the high level architecture of our bug report pre-filtering approach. When a new bug report is received, it will first be classified by a classification model into one of the two categories: ``predictable'' and ``unpredictable''. A ``predictable'' report is considered as informative and helpful to an IR-based ranking system for bug locating. It serves as input to the ranking system, which uses the report content to rank all the source code files and recommend the top ranked ones as ``buggy'' to developers to review. An ``unpredictable'' report, instead, is considered unhelpful to the IR-based ranking system and will be discarded. By keeping silent on unhelpful reports, the ranking system can reduce the number of false positives and make the recommendations be more trustworthy.
 
-\section{LSTM-based Bug Report Classification}
+\section{Bug Report Classification using an LSTM Network}
 \label{sec:lstm-based classification}
-asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/lstm.pdf}
 \caption{Bug-report classification architecture: using LSTM.}
 \label{fig:lstm}
 \end{figure}
+The architecture of the classification model is shown in Figure~\ref{fig:lstm}. Given a bug report, it takes as input the vector representations of words in the report to a Recurrent Neural Network (RNN) implemented with LSTM units. The output of the LSTM unit at the last time step is fed into a fully connected layer, followed by the Softmax model that produces the categorical distribution.
+
+The following subsections detail each step of this process.
+
+\subsection{From Bug Report to Bug Report Matrix}
+\label{sec:bug report matrix}
+Given a bug report, we concatenate its summary and its description into one document. Punctuation and numerical numbers are removed. Then we split the text by white space and obtain a bag-of-words $T$ of the document: $T = (w_1, w_2, w_3, ... w_N)$, where $w_i$ is a word token in the report and $N$ is the total number of words.
+
+Next, we represent every word token $w_i$ with a $d$-dimensional vector of real numbers $\mathbf{w}_i$ called word embedding that captures some contextual semantic meanings \cite{NIPS2014_5477}. We use Mikolov's Skip-gram model \cite{DBLP:conf/icml/LeM14} to learn word embeddings with size of 100 on the Wikipedia data dumps\footnote{https://dumps.wikimedia.org/enwiki/}. For unseen words that are not in the Wiki vocabulary, we represent them using a vector that all 100 elements are randomly generated within the range of $(-1,1)$.
+
+Bug reports may have different lengths. RNN can work on variable-length sequence input. However, when we train and update the LSTM network, we use multiple bug reports (e.g., 64) in a mini-batch to compute the gradient of the cost function at each step. For simplicity, we set a fixed size of 100 to all the bug reports so that a training batch can be represented by a single tensor in the TensorFlow implementation of RNN\footnote{https://www.tensorflow.org/tutorials/recurrent}. A bug report with less than 100 words will be padded with zero vectors.
+
+Then the original bag-of-words $T$ of a bug report is converted into a matrix of real numbers: $\mathcal{M} \in \mathbb{R}^{100x100}$, where $\mathcal{M} = (\mathbf{w}_1, \mathbf{w}_2, $ \\ $\mathbf{w}_3, ..., \mathbf{w}_{100})$ and $\mathbf{w}_i \in \mathbb{R}^{100}$ is the embedding of word $w_i$. We call this matrix a bug report matrix that serves as input to the LSTM network.
+
+\subsection{From Bug Report Matrix to Feature Vector}
+\label{sec:features}
+An LSTM network is a RNN using LSTM units in the hidden layer, where an LSTM unit is composed of a \textit{memory cell} and three multiplicative gates (an \textit{input gate}, an \textit{output gate}, and a \textit{forget gate}) \cite{Hochreiter:1997:LSM:1246443.1246450}. An LSTM (memory) cell $\mathbf{c}_t \in \mathbb{R}^{m}$ is a $m$-dimensional vector that stores $m$ values (states) of the hidden layer at time step $t$. The three multiplicative gates are used to control the memory of the hidden states and the update of the output. RNNs allow information (weights of connections between the input and the hidden layer) to be accumulated from previous time steps. They are powerful for modeling dependencies in time series \cite{Sutskever:2014:SSL:2969033.2969173, Goodfellow:2016:DL:3086952}. Traditional RNNs are difficulty to train on long sequence due to the vanishing gradient problem \cite{Bengio:1994:LLD:2325857.2328340}. LSTM networks effectively alleviate this problem by using the multiplicative gates to learn long-term dependencies over long periods of time.
+
+\begin{figure}[t]
+\centering
+\includegraphics[scale=0.9]{figures/lstm2.pdf}
+\caption{An LSTM Network.}
+\label{fig:lstm2}
+\end{figure}
+
+The LSTM network takes the bug report matrix $\mathcal{M}$ as a time series input (from $\mathbf{w}_1$ to $\mathbf{w}_{100}$). At each time step, as shown Figure~\ref{fig:lstm2}, an embedding $\mathbf{w}_i$ is fed into the LSTM network, where the output $\mathbf{h}_i \in \mathbb{R}^{m}$ of an LSTM unit is determined based on three types of input: the current embedding $\mathbf{w}_i \in \mathbb{R}^{100}$, the previous LSTM output $\mathbf{h}_{i-1} \in \mathbb{R}^{m}$, and the content of the memory cell $\mathbf{c}_{i-1} \in \mathbb{R}^{m}$ from the previous time step, where $m$ is the number of hidden units (states) in the memory cell.
+
+In this paper, the output of the LSTM unit from the last time step $\mathbf{h}_{100} \in \mathbb{R}^{m}$ is used as the final output $\mathbf{h}$ of the LSTM network. It is a feature vector representation of the original bug report that captures the structural and semantic dependencies.
+
+\subsection{From Feature Vector to Categorical Distribution}
+\label{sec:categorical distribution}
+The output of the LSTM network $\mathbf{h} \in \mathbb{R}^{m}$ is fed into a fully connected layer with rectifier (ReLU) \cite{Nair:2010:RLU:3104322.3104425} activation function.
+
+\begin{equation}
+  \mathbf{x} = max(\mathbf{f}, 0), \:\:\:\:\:\: \mathbf{f} = \mathbf{u}^T \mathbf{h} + \mathbf{b}
+\label{eq:fully connected}
+\end{equation}
+
+The output $\mathbf{x} \in \mathbb{R}^{n}$ of the fully connected layer is shown in Equation~\ref{eq:fully connected}, where $\mathbf{u} \in \mathbb{R}^{mxn}$ is the weighting vectors initialized using the Glorot uniform scheme \cite{DBLP:journals/jmlr/GlorotB10}, $\mathbf{b} \in \mathbb{R}^{n}$ is the bias, and $n=2$ is the number of categories. It serves as input to a Softmax model.
+
+Softmax normalizes $\mathbf{x} \in \mathbb{R}^{n}$ into a new $n$-dimensional vector $\mathbf{\tilde{y}}$ with real numbers in the range $[0,1]$. The elements of $\mathbf{\tilde{y}}$ sum up to 1. So it can be used as the categorical (probability) distribution over all the possible categories: ``predictable'' and ``unpredictable''.
+
+\begin{equation}
+  \tilde{y_i} = P(r \in i|\mathbf{x}) = \sigma(\mathbf{v}_i^T\mathbf{x}) = {exp({\mathbf{v}_i}^T\mathbf{x}) \over \sum_{k=1}^{2}exp({\mathbf{v}_k}^T\mathbf{x})}, \:\:\:\:\:\: i \in [1,2]
+\label{eq:softmax}
+\end{equation}
+
+Given $\mathbf{x}$, the probability of the $i^{th}$ category for bug report $r$ is denoted in Equation~\ref{eq:softmax}, where $\mathbf{v}$ is the weighting vector.
+
+Finally, the bug report is classified to the category with the largest probability value.
+
+\subsection{Model Training}
+\label{sec:model training}
+Parameters of the LSTM network, fully connected layer, and the Softmax model are trained on minimizing the cross-entropy error using Adam (adaptive moment estimation) optimizer \cite{DBLP:journals/corr/KingmaB14}.
+
+\begin{equation}
+  J(w) = \sum_{r \in R}\sum_{i=1}^{n}(y_i \log \tilde{y_i} + (1-y_i) \log (1-\tilde{y_i}))
+\label{eq:cross entropy}
+\end{equation}
+
+The cross-entropy cost function is shown in Equation~\ref{eq:cross entropy}, where $y_i$ is the observed probability of category $i$ for bug report $r$, $\tilde{y_i}$ is the estimated probability, $R$ denotes a training batch.
+
+Before training, the training set is split into small \textit{batches}. During training, the models are updated using the gradient of the cost function computed over a mini-batch set. Using batches improves training efficiency, helps avoid local minima, and achieves better convergence \cite{Goodfellow:2016:DL:3086952}.
+
+One cycle (a forward pass and a backward pass) of seeing all the training data is called an \textit{epoch}. Let $T$ denotes the training set and $R$ be a mini-batch, the number of batches is $num\_batches = |T||R|^{-1}$. So each epoch updates the models $num\_batches$ times .
+
+The models are trained over a maximum 500 epochs with an earlier stopping creterion, which deems convergence when seeing a certain number (e.g., 10) of continous performance degrade on the validation dataset.
 
 \begin{figure}[t]
 \centering
@@ -50,8 +116,6 @@ asdasdasdasdasdasdasdasdsdasda asd dasd asdasdasdasdasdasdasdasdsdasda asd dasd 
 \caption{Bug-report classification architecture: using CNN.}
 \label{fig:cnn}
 \end{figure}
-
-
 
 \subsubsection{C.5 Evaluation}
 We will evaluate the software defect positioning system on several large-scale open-source projects that contain a sufficient number (more than 2,000) of source code files and previously fixed bug reports. We will conduct experiments on software projects that are written in Java as well as projects written in C/C++ because these programming languages are widely used in both industry and academic. We will use projects from the Eclipse foundation~\footnote{https://eclipse.org/} and Apache foundation~\footnote{https://www.apache.org/} because 1) both have many large-scale open-source projects written in Java and C/C++; 2) the source code packages can be easily downloaded from their GIT repositories; 3) their bug reports or issue reports are public accessible. More specifically, the projects used in our preliminary work \cite{Ye:TSE15} will be used in this study. Additionally, we will run experiments on more projects such as Apache HTTP Server~\footnote{https://httpd.apache.org/} written in C, Lucene~\footnote{https://lucene.apache.org/} (an information retrieval software library) written in Java, and Hadoop~\footnote{http://hadoop.apache.org/} (a software framework for distributed storage and bigdata processing) written in Java. The selection of bug reports for evaluation is based on the same heuristics in \cite{Dallmeier:2007:EBL:1321631.1321702,Ye:FSE14}.
