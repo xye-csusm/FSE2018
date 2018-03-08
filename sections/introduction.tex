@@ -18,11 +18,11 @@ This paper proposes a Long Short-Term Memory (LSTM)-based pre-filtering approach
 
 We test our classification approach over 11,000 bug reports from four large-scale open source Java projects. Experiments show that, under a trade-off between the classification recall and precision, our approach can help an IR-based bug-locating system achieve better ranking result.
 
-We also perform evaluations to compare LSTM with Convolutional Neural Network (CNN) \cite{726791} (another class of DNN that is recently used to solve SE tasks \cite{Le:2015:IRS:2786805.2786880, Xu:2016:PSL:2970276.2970357, Mou:2016:CNN:3015812.3016002}), Perceptron \cite{Freund:1999:LMC:337859.337869, r-ppmisob-58}, and a simple baseline approach classifying a bug report based on its length with the assumption that larger content may contain more helpful information. Results show that the simple baseline approach can achieve comparably result with Perceptron. LSTM and CNN perform better than the others. LSTM achieves the best trade-off between precision and recall. 
+We also perform evaluations to compare LSTM with Convolutional Neural Network (CNN) \cite{726791} (another class of DNN that is recently used to solve SE tasks \cite{Le:2015:IRS:2786805.2786880, Xu:2016:PSL:2970276.2970357, Mou:2016:CNN:3015812.3016002}), multilayer perceptron \cite{Hornik:1989:MFN:70405.70408}, and a simple baseline approach classifying a bug report based on its length with the assumption that larger content may contain more helpful information. Results show that the simple baseline approach can achieve comparably result with multilayer perceptron. LSTM and CNN perform better than the others. LSTM achieves the best trade-off between precision and recall. 
 
-The main contributions of this paper include: a bug report pre-filtering model to filter out ``unpredictable'' reports before running an IR-based system for bug locating; an adaptation of LSTM in the task of bug report classification; extensive evaluations to compare the effectiveness of LSTM with CNN, Perceptron, and a simple baseline approach.
+The main contributions of this paper include: a bug report pre-filtering model to filter out ``unpredictable'' reports before running an IR-based system for bug locating; an adaptation of LSTM in the task of bug report classification; extensive evaluations to compare the effectiveness of LSTM with CNN, multilayer perceptron, and a simple baseline approach.
 
-The rest of this paper is structured as follows. Section 2 draws an overall picture of the pre-filtering model for bug locating. Section 3 details the adaptation of an LSTM network for bug report classification. Section 4 introduces CNN, Perceptron, and a simple baseline approach used for comparisons. Section 5 presents the evaluation setup and result. Following a discussion of related work in Section 6, the paper ends in Section 7 with future work and concluding remark.
+The rest of this paper is structured as follows. Section 2 draws an overall picture of the pre-filtering model for bug locating. Section 3 details the adaptation of an LSTM network for bug report classification. Section 4 introduces CNN, multilayer perceptron, and a simple baseline approach used for comparisons. Section 5 presents the evaluation setup and result. Following a discussion of related work in Section 6, the paper ends in Section 7 with future work and concluding remark.
 
 \section{High Level Architecture of Bug Report Pre-Filtering}
 \label{sec:high level architecture}
@@ -76,11 +76,11 @@ In this paper, the output of the LSTM unit from the last time step $\mathbf{h}_{
 The output of the LSTM network $\mathbf{h} \in \mathbb{R}^{m}$ is fed into a fully connected layer with rectifier (ReLU) \cite{Nair:2010:RLU:3104322.3104425} activation function.
 
 \begin{equation}
-  \mathbf{x} = max(\mathbf{f}, 0), \:\:\:\:\:\: \mathbf{f} = \mathbf{u}^T \mathbf{h} + \mathbf{b}
+  \mathbf{x} = max(\mathbf{f}, 0), \:\:\:\:\:\: \mathbf{f} = \mathbf{U}^T \mathbf{h} + \mathbf{b}
 \label{eq:fully connected}
 \end{equation}
 
-The output $\mathbf{x} \in \mathbb{R}^{n}$ of the fully connected layer is shown in Equation~\ref{eq:fully connected}, where $\mathbf{u} \in \mathbb{R}^{mxn}$ is the weighting vectors initialized using the Glorot uniform scheme \cite{DBLP:journals/jmlr/GlorotB10}, $\mathbf{b} \in \mathbb{R}^{n}$ is the bias, and $n=2$ is the number of categories. It serves as input to a Softmax model.
+The output $\mathbf{x} \in \mathbb{R}^{n}$ of the fully connected layer is shown in Equation~\ref{eq:fully connected}, where $\mathbf{U} \in \mathbb{R}^{mxn}$ is the weighting matrix initialized using the Glorot uniform scheme \cite{DBLP:journals/jmlr/GlorotB10}, $\mathbf{b} \in \mathbb{R}^{n}$ is the bias, and $n=2$ is the number of categories. It serves as input to a Softmax model.
 
 Softmax normalizes $\mathbf{x} \in \mathbb{R}^{n}$ into a new $n$-dimensional vector $\mathbf{\tilde{y}}$ with real numbers in the range $[0,1]$. The elements of $\mathbf{\tilde{y}}$ sum up to 1. So it can be used as the categorical (probability) distribution over all the possible categories: ``predictable'' and ``unpredictable''.
 
@@ -108,7 +108,17 @@ Before training, the training set is split into small \textit{batches}. During t
 
 One cycle (a forward pass and a backward pass) of seeing all the training data is called an \textit{epoch}. Let $T$ denotes the training set and $R$ be a mini-batch, the number of batches is $num\_batches = |T||R|^{-1}$. So each epoch updates the models $num\_batches$ times .
 
-The models are trained over a maximum 500 epochs with an earlier stopping creterion, which deems convergence when seeing a certain number (e.g., 10) of continous performance degrade on the validation dataset.
+The models are trained over a maximum 500 epochs with an earlier stopping criterion, which deems convergence when seeing a certain number (e.g., 10) of continuous performance degrade on the validation dataset.
+
+To achieve more robust convergence, we also apply the \textit{variational dropout} technique \cite{Gal:2016:TGA:3157096.3157211} during training, which reduces over-fittings by randomly cleaning up some input, output, and hidden units.
+
+\section{Bug Report Classification using CNN, Multilayer Perceptron, and a Simple Baseline}
+\label{sec:cnn perceptron simple baseline}
+This section introduces bug report classification using Convolutional Neural Network (CNN), multilayer perceptron, and a simple baseline approach for comparisons with using the LSTM network.
+
+\subsection{CNN for Bug Report Classification}
+\label{sec:cnn}
+A CNN is a deep feedforward neural network composed of one or more convolutional layers with subsamplings (poolings) \cite{726791}. Unlike RNNS that memorize the past and use the previous output to update the current states, information in CNNs passes through in one direction and never go back. While LSTM networks are powerful for learning long-term dependencies from time series, CNNs learn dependencies from spatial locality and work effectively on 2-D structure (e.g., image) \cite{2014arXiv1409.0575R}.
 
 \begin{figure}[t]
 \centering
@@ -116,6 +126,52 @@ The models are trained over a maximum 500 epochs with an earlier stopping creter
 \caption{Bug-report classification architecture: using CNN.}
 \label{fig:cnn}
 \end{figure}
+
+Figure~\ref{fig:cnn} shows the overall architecture of using CNN for bug report classification. In this paper, we use a CNN with two convolutioan layers with max poolings followed by two fully connected layers with ReLU. It takes as input a bug report matrix $\mathcal{M} \in \mathbb{R}^{100x100}$ as described in Section~\ref{sec:bug report matrix}. The first convolutional layer uses eight fixed-size (5x5) filters to perform convolution operations over the input matrix and outputs the same number of \textit{feature maps}. A max pooling layer reduces the size of the feature maps by subsampling. The second convolutional layer using sixteen filters takes as input the output of the first layer. The fully connected layers (with fan-out of 512 and 2 respectively) project the sixteen feature maps from the second convolutional layer to a vector that serves as input to the Softmax model for computing the probability distribution.
+
+We use the same training procedure as discussed in Section~\ref{sec:model training} to train the models (CNN and Softmax) by minimzing the cross-enropy cost function per mini-batch over a maximum 500 epochs with an early stopping criterion. 
+
+\subsection{Multilayer Perceptron for Bug Report Classification}
+\label{sec:perceptron}
+A multilayer perceptron is a feedforward neural network that projects data from the input layer to a linear separable space through multiple hidden layers with activation functions \cite{Hornik:1989:MFN:70405.70408}.
+
+\begin{equation}
+  f_1(\mathbf{x}) = G_1(\mathbf{W}_1\mathbf{x} + \mathbf{b}_1), \:\: f_2(\mathbf{x}) = G_2(\mathbf{W}_2 f_1(\mathbf{x}) + \mathbf{b}_2), \:\: ...
+\label{eq:perceptron}
+\end{equation}
+
+Given input $\mathbf{x}$, the output $f_i(\mathbf{x})$ of the $i^{th}$ hidden layer is shown in Equation~\ref{eq:perceptron}, where $\mathbf{W}_i$ and $\mathbf{b}_i$ are the weights matrix and bias, $G_i$ is the activation function.
+
+We use a multilayer perceptron with three hidden layers all using 500 computation nodes and \textit{sigmoid} the activation function. A bug report matrix $\mathcal{M}$ is unpacked to a vector that serves as input to the first hidden layer. The output of the last hidden layer is fed into a fully connected layer followed by a softmax model to estimate the categorical probabilities.
+
+The models are trained by minimizing the cross-entropy function using the same training scheme as discussed in the previous sections.
+
+\subsection{A Simple Baseline Approach for Bug Report Classification}
+\label{sec:simple baseline}
+We build a simple baseline approach for bug report classification based on a simple assumption that longer content of a report contains more helpful information related to the bug.
+
+\begin{figure}[ht]
+\begin{center}
+\fbox{\parbox{7.5cm}{
+\textbf{def} \textcolor{blue}{\textbf{classify}}(report, threshold):\\
+\hspace*{1.5em} get the bag-of-words of the report\\
+\hspace*{1.5em} set $n$ = $|$bag-of-words$|$\\
+\hspace*{1.5em} \textbf{if} $n$ > threshold:\\
+\hspace*{3.0em} \textbf{return} "\textcolor{red}{predictable}''\\
+\hspace*{1.5em} \textbf{else}:\\
+\hspace*{3.0em} \textbf{return} "\textcolor{red}{unpredictable}''
+}}
+\caption{Classifying a bug report based on its length.}
+\label{fig:simple baseline}
+\end{center}
+\end{figure}
+
+The simple baseline approach is shown in Figure~\ref{fig:simple baseline}. If the length of a bug report is greater than a given threshold value, we deem it ``predictable'', otherwise, ``unpredictable''.
+
+Unlike the neural-network approaches taking as input a bug report matrix created using word embeddings, this simple baseline approach uses the raw report as input. Although it does not learn any lexical or semantic meanings, it catches a simple but important structural information: the report size. This simple approach is general enough, as a comparison baseline, to work on any types of reports.
+
+\section{Evaluation}
+\label{sec:evaluation}
 
 \subsubsection{C.5 Evaluation}
 We will evaluate the software defect positioning system on several large-scale open-source projects that contain a sufficient number (more than 2,000) of source code files and previously fixed bug reports. We will conduct experiments on software projects that are written in Java as well as projects written in C/C++ because these programming languages are widely used in both industry and academic. We will use projects from the Eclipse foundation~\footnote{https://eclipse.org/} and Apache foundation~\footnote{https://www.apache.org/} because 1) both have many large-scale open-source projects written in Java and C/C++; 2) the source code packages can be easily downloaded from their GIT repositories; 3) their bug reports or issue reports are public accessible. More specifically, the projects used in our preliminary work \cite{Ye:TSE15} will be used in this study. Additionally, we will run experiments on more projects such as Apache HTTP Server~\footnote{https://httpd.apache.org/} written in C, Lucene~\footnote{https://lucene.apache.org/} (an information retrieval software library) written in Java, and Hadoop~\footnote{http://hadoop.apache.org/} (a software framework for distributed storage and bigdata processing) written in Java. The selection of bug reports for evaluation is based on the same heuristics in \cite{Dallmeier:2007:EBL:1321631.1321702,Ye:FSE14}.
