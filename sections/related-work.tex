@@ -1,9 +1,9 @@
 \section{Related Work}
 \label{sec:related word}
 
-Related work on word embedding in NLP was discussed in Section~\ref{sec:background}. In this section we discuss other methods for computing word similarities in software engineering and related approaches for bridging the lexical gap in software engineering tasks.
+In this section, we describe work in other areas of IR-based bug report handling, other uses of neural networks in software engineering, and briefly touch on non-IR-based approaches to bug report handling.
 
-\subsection{Bug Report}
+\subsection{Bug Report Handling}
 
 Lam et al. \cite{7372035} seeks to improve bug report handling by automating the task of associating buggy files with a bug report.  In order to overcome the lexical mismatch problem of the natural language used in bug reports not matching the terms and code tokens in source files, they combined rSVM information retrieval with deep neural networks to associate terms in bug reports to terms in source files.  Their resulting model, DnnLoc, is able to suggest likely source code files that contain the bug described in a bug report.
 
@@ -13,20 +13,28 @@ Ye et al. \cite{Ye:ICSE16, Ye:FSE14} develops a learning-to-rank model to combin
 
 Zhou et al. \cite{Zhou:2012:BFM:2337223.2337226} implemented BugLocator that locates files based on ranking by textual similarity of bug reports and source code using a revised Vector Space Model (rSVM).  Sahar et al. \cite{Saha:2013:ASE:6693093} outperforms BugLocator with BLUiR that uses structural information of code to enable more accurate bug localization.
 
-Kim et al. \cite{Kim:2013:WFT:2554428.2554437} apply Na\"{i}ve Bayes, 
+Kim et al. \cite{Kim:2013:WFT:2554428.2554437} apply Na\"{i}ve Bayes to localize source code files for a bug report based on previously fixed files as labels.  In order to improve localization accuracy, they add an initial phase where bug reports are classified to predictable or deficient based on prediction history of resolved bug reports.  Deficient bug reports are not localized to code to avoid misleading recommendations.
 
-Nguyen et al. \cite{Nguyen:2011:TAN:2190078.2190181} and Lukins et al. \cite{Lukins:2010:BLU:1824820.1824850} use Latent Dirichlet Allocation (LDA), 
+Lukins et al. \cite{Lukins:2010:BLU:1824820.1824850} use a Latent Dirichlet Allocation (LDA) based technique that is accurate and scaleable for automatic bug localization.  Nguyen et al. \cite{Nguyen:2011:TAN:2190078.2190181} uses the shared technical aspects in the text of bug reports and corresponding source code to implement a LDA based system BugScout to correlate reports to buggy code.
 
-Rao et al. \cite{Rao:2011:RSL:1985441.1985451} apply various IR models including VSM and LDA to measure the relaitonship between bug reports and source files for recommendations.
+Rao et al. \cite{Rao:2011:RSL:1985441.1985451} compared Unigram Model, Vector Space Model, Latent Semantic Analysis Model, Latent Dirichlet Allocation Model, and Cluster Based Document Model for bug localization.  They found that more sophisticated models (LDA, LSA, CBDM) did not outperform simpler text models (UM, VSM).
 
-Zhang et al. \cite{Zhang:2016:TMA:2949080.2949249} classify bug reports based on severity
+Determining the severity of bug reports automatically is another area where handling of bug reports can be improved.  Lamkanfi et at. \cite{5463284} use a Na\"{i}ve Bayes based approach to investigate if severity can be accurately predicted.  They conclude that a sufficient training set can achieve reasonable prediction accuracy.  Zhang et al. \cite{Zhang:2016:TMA:2949080.2949249} describe a system to find similar historical bug reports utilizing a modified REP algorithm and K-Nearest Neighbor.  Then, an improved performance severity predicition algorithm is developed with the extracted features of the bug reports.
 
-Another direction for reducing effort of resolving bug reports is to automate triage of bug reports to developer(s) that are likely to resolve them. \cite{Anvik2011ReducingTE, Hu2014EffectiveBT, Zhang2013AHB, Xuan2015TowardsEB}
+Another direction for reducing effort of handling bug reports is to automate triage of bug reports to developer(s) that are likely to resolve them.  Anvik et al. \cite{Anvik:2006:FTB:1134285.1134336, Anvik2011ReducingTE} used support vector machines and other machine learning approaches to implement developer recommending models achieving varying degrees of precision.  Hu et al. \cite{Hu2014EffectiveBT} implement recommendation method called Bug Fixer that utilizes historic information of source code components where developers have have fixed bugs previously.  Zhang et al. \cite{Zhang2013AHB} implement a hybrid system that utilizes unigram model to find similar bug reports and then recommends a developer based on developer's probability to fix and a model of developer's activity and experience.  Bhattacharya et al. \cite{Bhattacharya:2012:AHB:2330373.2330434} employ a set of machine learning tools and tossing graphs to accurately assign bugs to developers.  Xuan et al. \cite{Xuan2015TowardsEB} use a model of instance selection and feature selection determined by historic bug data sets to reduce data scale and improve accuracy of bug triage. Shokripour et al. \cite{Shokripour:2013:WSC:2487085.2487089} uses an approach that uses noun extraction and simple term weighting to predict bug location and then uses a location-based approach to recommend assigment of the bug to a developer.
 
 \subsection{Using Neural Networks to Support Software Engineering}
 
-\cite{8255666, Huo:2017:EUF:3172077.3172153}
+Effort estimation is necessary for planning and managing a software project.  Choetkiertikul et al. \cite{8255666} utilizes deep learning with long short-term memory and recurrent highway network to facilitate effort estimation for agile projects.  They use deep learning to model and predict estimations of story points, a unit of measure for the effort to complete a user story or resolve an issue.
 
-\subsection{Non-IR Based Bug Report Classification Techniques}
+Developers often need to utilize APIs to implement functionality, but it can be a significant obstacle to deal with unfamiliar libraries or frameworks.  Gu et al. \cite{Gu:2016:DAL:2950290.2950334} utilize RNN Encoder-Decoder for a deep learning approach called DeepAPI.  DeepAPI allows a natural language query to accurately generate a relevant API sequence.
 
-\cite{Cleve:2005:LCP:1062455.1062522, Dit:2013:IIR:2436118.2436134, Poshyvanyk:2013:CLU:2377656.2377660, Poshyvanyk:2007:FLU:1263152.1263534, Liu:2005:SSM:1081706.1081753, Jin:2013:FFL:2483760.2483763, B.Le:2016:LBF:2931037.2931049, Le:2015:IRS:2786805.2786880, Jones:2005:EET:1101908.1101949}
+Online developer forums are full of individual units of programmer knowledge that have potential to be linked for being related, duplicates, etc.  Xu et al. \cite{Xu:2016:PSL:2970276.2970357} utilize word embeddings and convolutional neural networks for a deep learning based approach to semantically linking knowledge units on StackOverflow that outperforms traditional methods.  Fu et al. \cite{Fu:2017:EOH:3106237.3106256,} follow up this approach with a differential evolution approach that achieve similar results on the scale of minutes rather than hours with the deep learning approach.  They show that deep learning may provide benefits for software engineering but simpler or faster methods should still be considered.
+
+\cite{Huo:2017:EUF:3172077.3172153} %should this be covered in this section???
+
+\subsection{Non-IR-Based Bug Report Handling}
+
+Information retrieval approachs are not the only way to try handling bug reports.  There are approaches that are not IR-based or augment/combine with IR to accomplish bug report handling tasks.  Cleve et al. \cite{Cleve:2005:LCP:1062455.1062522} focus on cause transitions to find locations of defects.  Dit et al. \cite{Dit:2013:IIR:2436118.2436134} utilizes web mining algorithms to analyze execution information.  Poshyvanyk et al. \cite{Poshyvanyk:2013:CLU:2377656.2377660, Poshyvanyk:2007:FLU:1263152.1263534} have utilized both Formal Concept Analysis and scenario-based probabilistic ranking of events.  Liu et al. \cite{Liu:2005:SSM:1081706.1081753} uses a model based on pattern evaluation between correct and incorrect runs to quantify bug-relevance.  Jin et al. \cite{Jin:2013:FFL:2483760.2483763} used synthesized passing and failing executions to perform fault localization.  Le et al \cite{Le:2015:IRS:2786805.2786880, B.Le:2016:LBF:2931037.2931049} utilizes approaches of program spectra analysis to find suspicous words and invariant mining.  Jones et al. \cite{Jones:2005:EET:1101908.1101949} implements Tarantula approach of generating likelihood/suspicion for each statement of source code using the code entities executed by passing and failing test cases.
+
+
