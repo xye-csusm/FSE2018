@@ -3,6 +3,7 @@
 \usepackage{booktabs} % For formal tables
 \usepackage{adjustbox}
 \usepackage{color}
+\usepackage{float}
 
 \newcommand\Tstrut{\rule{0pt}{2.2ex}}         % = `top' strut
 \newcommand\Bstrut{\rule[-0.7ex]{0pt}{0pt}}   % = `bottom' strut
@@ -84,7 +85,7 @@
 \email{liuc@ohio.edu}
 
 \begin{abstract}
-The PI proposes a two-year project to develop an interactive and practical system that locates software defects automatically. This system will alleviate developers' effort in bug finding and improve productivity. In preliminary work, the PI developed a ranking model that ranks all the source code files for a given bug report. A source file at a higher position in the ranked list is more likely to contain defects than a source file at a lower position. The proposed system is an extension of the PI's preliminary work. In this project, the PI propose to 1) introduce a pre-filtering technique to filter out low-quality bug reports; 2) use artificial neural network to measure semantic relationship between bug reports and source code files; 3) implement an interactive 3-D VR user interface on multiple platforms for the system. The first two objectives aim at making the system be more accurate. The third objective aims at making the system be more usable. The PI propose to recruit two student assistants including one graduate and one undergraduate to help develop the system and perform experimental evaluation. The system will be published and will be used in the software engineering (SE) courses at California Sate University San Marcos to help students learn SE concepts in a lively manner.
+Recently many information retrieval (IR)-based approaches have been proposed to help locate software defects automatically by using information from bug report contents. However, some bug reports that do not semantically related to the relevant code are not helpful to IR-based systems. Runing an IR-based system on these reports may produce false positives. In this paper, we propose a classification model for classifying a bug report as either helpful or unhelpful using a LSTM-network. By filtering our unhelpful reports before runing an IR-based bug locating system, our approach helps reduce false positives and improve the ranking performance. We test our model over 9,000 bug reports from three software projects. The evaluation result shows that our model helps improve a state-of-the-art IR-based system's ranking performance under a trade-off between the precision and the recall. Our comparison experiments show that the LSTM-network achieves the best trade-off between precision and recall than other classification models including CNN, multilayer perceptron, and a simple baseline approach that classifies a bug report based its length. In the situation that precision is more important than recall, our classification model helps for bug locating.
 \end{abstract}
 
 %
@@ -117,15 +118,13 @@ The PI proposes a two-year project to develop an interactive and practical syste
 \ccsdesc[300]{Information systems~Multilingual and cross-lingual retrieval}
 
 
-\keywords{Recurrent neural network, long short-term memory, convolutional neural network, bug localization, bug report}
+\keywords{Long short-term memory, convolutional neural network, bug locating, bug report}
 
 
 \maketitle
 
 \input{sections/introduction}
-\input{sections/evaluation}
 \input{sections/related-work}
-\input{sections/future-work}
 \input{sections/conclusion}
 \input{sections/acknowledgement}
 

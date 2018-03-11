@@ -16,7 +16,7 @@ Kim et al. \cite{Kim:2013:WFT:2554428.2554437} proposed a two-phase model that f
 
 This paper proposes a Long Short-Term Memory (LSTM)-based pre-filtering approach to classify bug reports as either ``predictable'' or ``unpredictable''. An LSTM network is a Recurrent Neural Network (RNN) with LSTM units \cite{Hochreiter:1997:LSM:1246443.1246450} for learning features from sequence data. It has been recently used in the Software Engineering (SE) domain to solve SE problems \cite{8255666, Huo:2017:EUF:3172077.3172153}. We use LSTM to learn from bug reports their vector representations, which are then serve as input \textit{features} to a \textit{Softmax} layer for classification. If a bug report is classified as ``predictable'', we use an existing IR-based system to help locate the bug for it, otherwise, we keep silent.
 
-We test our classification approach over 11,000 bug reports from four large-scale open source Java projects. Experiments show that, under a trade-off between the classification recall and precision, our approach can help an IR-based bug-locating system achieve better ranking result.
+We test our classification approach over 11,000 bug reports from three large-scale open source Java projects. Experiments show that, under a trade-off between the classification recall and precision, our approach can help an IR-based bug-locating system achieve better ranking result.
 
 We also perform evaluations to compare LSTM with Convolutional Neural Network (CNN) \cite{726791} (another class of DNN that is recently used to solve SE tasks \cite{Le:2015:IRS:2786805.2786880, Xu:2016:PSL:2970276.2970357, Mou:2016:CNN:3015812.3016002}), multilayer perceptron \cite{Hornik:1989:MFN:70405.70408}, and a simple baseline approach classifying a bug report based on its length with the assumption that larger content may contain more helpful information. Results show that the simple baseline approach can achieve comparably result with multilayer perceptron. LSTM and CNN perform better than the others. LSTM achieves the best trade-off between precision and recall. 
 
@@ -127,7 +127,7 @@ A CNN is a deep feedforward neural network composed of one or more convolutional
 \label{fig:cnn}
 \end{figure}
 
-Figure~\ref{fig:cnn} shows the overall architecture of using CNN for bug report classification. In this paper, we use a CNN with two convolutioan layers with max poolings followed by two fully connected layers with ReLU. It takes as input a bug report matrix $\mathcal{M} \in \mathbb{R}^{100x100}$ as described in Section~\ref{sec:bug report matrix}. The first convolutional layer uses eight fixed-size (5x5) filters to perform convolution operations over the input matrix and outputs the same number of \textit{feature maps}. A max pooling layer reduces the size of the feature maps by subsampling. The second convolutional layer using sixteen filters takes as input the output of the first layer. The fully connected layers (with fan-out of 512 and 2 respectively) project the sixteen feature maps from the second convolutional layer to a vector that serves as input to the Softmax model for computing the probability distribution.
+Figure~\ref{fig:cnn} shows the overall architecture of using CNN for bug report classification. In this paper, we use a CNN with two convolutioan layers with max poolings followed by two fully connected layers with \textit{sigmoid} the activation function. It takes as input a bug report matrix $\mathcal{M} \in \mathbb{R}^{100x100}$ as described in Section~\ref{sec:bug report matrix}. The first convolutional layer uses eight fixed-size (5x5) filters to perform convolution operations over the input matrix and outputs the same number of \textit{feature maps}. A max pooling layer reduces the size of the feature maps by subsampling. The second convolutional layer using sixteen filters takes as input the output of the first layer. The fully connected layers (with fan-out of 512 and 2 respectively) project the sixteen feature maps from the second convolutional layer to a vector that serves as input to the Softmax model for computing the probability distribution.
 
 We use the same training procedure as discussed in Section~\ref{sec:model training} to train the models (CNN and Softmax) by minimzing the cross-enropy cost function per mini-batch over a maximum 500 epochs with an early stopping criterion. 
 
@@ -170,47 +170,249 @@ The simple baseline approach is shown in Figure~\ref{fig:simple baseline}. If th
 
 Unlike the neural-network approaches taking as input a bug report matrix created using word embeddings, this simple baseline approach uses the raw report as input. Although it does not learn any lexical or semantic meanings, it catches a simple but important structural information: the report size. This simple approach is general enough, as a comparison baseline, to work on any types of reports.
 
+\begin{table*}[t]
+\centering
+\caption{Benchmark Projects: {bug reports are split into a testing, a validation and a training set.}}
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+Project&Time Range&\# reports for testing &\# reports for validation&\# reports for training&total\\ \hline
+Eclipse Platform UI &2001-10 -- 2014-01&1,156&500&2,000&3,656\\ \hline
+SWT&2002-02 -- 2014-01&817&500&1,500&2,817\\ \hline
+JDT&2001-10 -- 2014-01&632&500&1,500&2,632\\ \hline
+\end{tabular}
+\label{tab:dataset}
+\end{table*}
+
 \section{Evaluation}
 \label{sec:evaluation}
 
-\subsubsection{C.5 Evaluation}
-We will evaluate the software defect positioning system on several large-scale open-source projects that contain a sufficient number (more than 2,000) of source code files and previously fixed bug reports. We will conduct experiments on software projects that are written in Java as well as projects written in C/C++ because these programming languages are widely used in both industry and academic. We will use projects from the Eclipse foundation~\footnote{https://eclipse.org/} and Apache foundation~\footnote{https://www.apache.org/} because 1) both have many large-scale open-source projects written in Java and C/C++; 2) the source code packages can be easily downloaded from their GIT repositories; 3) their bug reports or issue reports are public accessible. More specifically, the projects used in our preliminary work \cite{Ye:TSE15} will be used in this study. Additionally, we will run experiments on more projects such as Apache HTTP Server~\footnote{https://httpd.apache.org/} written in C, Lucene~\footnote{https://lucene.apache.org/} (an information retrieval software library) written in Java, and Hadoop~\footnote{http://hadoop.apache.org/} (a software framework for distributed storage and bigdata processing) written in Java. The selection of bug reports for evaluation is based on the same heuristics in \cite{Dallmeier:2007:EBL:1321631.1321702,Ye:FSE14}.
+This section discusses a set of extensive experiments to evaluate the effectiveness of the LSTM-based bug report classification approach on the bug locating task. Generally, we want to see whether this approach is able to filter out unhelpful bug reports to an IR-based system, whether it helps improve the bug-locating performance, what is the trade-off between precision and recall, and what is the difference in terms of performance between using different classification models.
 
-We will run the system to rank all the source code files for a given bug report and compare the result with the actual fix. The evaluation metrics such as \textit{Mean Average Precision} (MAP) \cite{Manning:2008:IIR:1394399} used in our preliminary work \cite{Ye:TSE15} will also be used in this study. Additionally, we will use Normalized Discounted Cumulative Gain (NDCG) \cite{Jarvelin:2002:CGE:582415.582418}, which is widely used in evaluating information retrieval models e.g. web search engines, to evaluate our system.
+\subsection{IR-based Bug Locating System}
+\label{sec:bug locating system}
+We use a recent bug locating system provided by Ye et al. \cite{Ye:ICSE16} in our experiments because: 1) it is an IR-based system; 2) it can be acquired; 3) it provides comparably good results with other state-of-the-art systems \cite{7372035, 7961519}. This system uses a \textit{\textbf{L}earning-to-\textbf{R}ank} technique combining \textbf{W}ord-\textbf{E}mbedding-based features and VSM-based features for bug locating. We denote it as LRWE in this paper.
 
-The PI is aware that user study is an effective way to evaluate the effectiveness of the proposed system in developers' real work. However, this is not the main goal of the proposed study. So the PI leave this to future work after the system is published. This study will also provide the basis for our future research on evaluating the effectiveness and usability of the proposed system in assisting teaching software engineering course at CSUSM.
+\subsection{Benchmark Datasets}
+\label{sec:benchmark dataset}
+We use the same benchmark dataset with \cite{Ye:FSE14, Ye:ICSE16, 7372035, 7961519, 7832908} as shown in Table~\ref{tab:dataset}. Totally 9,105 bug reports and the corresponding source code packages from Eclipse Platform UI, SWT, and JDT are checkout and used in our experiments. We split these bug reports into a training dataset for training the classification models, a validation dataset for checking whether the models are converged or not, and a testing dataset for providing the testing result.
 
-\subsection{D. Work Plan}
-The PI plan to hire one graduate student enrolled in the Master of Science Program in Computer Science (CS) and one undergraduate student enrolled in the Bachelor of Science in Computer Science program at CSUSM to help develop the system. The PI takes the overall responsibility of directing the project and keeps mentoring the students during the development.
+\subsection{Labeling the Data}
+\label{sec:labeling the data}
+Data labeling provides the ground truth for the experiments. The goal of our bug report classification is to filter out unhelpful bug reports while keeping the helpful ones to an IR-based bug locating system for improving locating performance and reducing false positives. So the assessment of a bug report's helpfulness (``preictable'' or ``unpredictable''), instead of being done manually, should be performed automatically by the IR-based system used in the experiments.
 
-\textbf{In the first year}, the graduate student will help implement the bug-report classification model, the LSTM-based semantic similarity feature, and the ranking model running on the server-side. The undergraduate student will implement the client-side programs and the web server that takes charge of the communication between the ranking model and the client-program. Since the ranking model, the database, and the web server work closely, the students will also work together closely during the development.
+We perform data labeling by running the chosen bug locating system LRWE for all the bug reports. More specifically, for every bug report, we run LRWE on the corresponding source code package checked out from a commit right before its fix commit. The output of the system is a ranked list of all the source code files, from which we label the bug report as ``precitable'' to the system if at least one buggy file can be seen within the top $N$ positions. Otherwise, if the top $N$ files in the ranked list are all irrelevant files, we label the bug report as ``unpredictable''. According to Miller's $7\pm2$ law \cite{mil56}, humans are able to handle seven plus or minus two tasks simultaneously. So we choose $N=10$ under the assumption that a ranked list is useful to users if a real bug locates within the top 10 recommendations.
 
-\textbf{In the second year}, two students will take charge of the maintenance and improvement of the system. Additionally, the graduate student will help run experiments to evaluate the ranking performance of the system on several open-source software projects, analyze the results, and improve the system accordingly. The undergraduate student will help develop a supplemental 3-D VR software visualization module. By the end of this year, the practical system will be published.
+The output of data labeling is a set of 9,105 bug reports labeled as either ``predictable'' or ``unpredictable'' as the ground truth.
 
-\textbf{Recruitment of students} will begin in spring, about three months before they start to work on the project. The PI will broadcast a hiring advertisement on CS-major electronic mailing lists, post a flier on class forums, and make a presentation of the project in the college-wide Frontiers in Science talk. In the coming 2017-2018 academic year, the CS department at CSUSM has a total of 866 undergraduate enrollments and a total of 39 graduate enrollments. Many students have desire to gain hands-on experience by working with faculty members on research projects. The PI will interview interested students. Preference will be given to economically-disadvantaged students, minority students, students making good progress toward their degree, and students who have demonstrated interest in this project.
+\subsection{Evaluation Metrics}
+\label{sec:evaluation metrics}
+We evaluate our bug report classification approach from two perspectives. First, we want to test its classification performance. Second, we want to test if it can help improve the IR-based bug locating system's ranking performance. So we run experiments using the following evaluation metrics:
+\begin{itemize}
+	\item \textit{true positive}: a ``predictable'' bug report that is also classified as ``predictable''
+	\item \textit{false positive}: an ``unpredictable'' bug report that is classified as ``predictable''
+	\item \textit{true negative}: an ``unpredictable'' bug report that is also classified as ``unpredictable''
+	\item \textit{false negative}: a ``predictable'' bug report that is classified as ``unpredictable''
+	\item \textit{\textbf{Accuracy}}: a standard metric measuring the correctness of the classification results.
+  	\begin{equation}
+		Accuracy = {|\text{true positives}| + |\text{true nagatives}| \over {\text{the totaly number of instances}}} 
+	\end{equation}
+   	\item \textit{\textbf{Precision}}: a standard metric measuring the usefulness of the classification results.
+  	\begin{equation}
+		Precision = {|\text{true positives}| \over {|\text{true positives}| + |\text{false positives}|}} 
+	\end{equation}
+   	\item \textit{\textbf{Recall}}: a standard metric measuring the completeness of the classification results.
+  	\begin{equation}
+		Recall = {|\text{true positives}| \over {|\text{true positives}| + |\text{false negatives}|}} 
+	\end{equation}
+	\item \textit{\textbf{F-Measure}}: a standard metric combining both Precision and Recall to measure the classification performance.
+  	\begin{equation}
+		F\text{-}Measure = (1 + \beta) \cdot {{Precision \cdot Recall} \over {\beta^2 \cdot Precision + Recall}} 
+	\end{equation}
+	When we give equal weights to Precision and Recall by setting $\beta=1$, we have \textbf{F1-Measure} that is called the harmonic mean of Precision and Recall.\\
+	When we give more weights to Precision by setting $\beta=0.5$, we have \textbf{F0.5-Measure} that considers Precision is more important.
+   \item \textit{Mean Average Precision (\textbf{MAP})}: a standard metric measuring the overall ranking performance of an IR system \cite{Manning:2008:IIR:1394399}. It is defined as the mean of the average precision over all queries. MAP is widely used in measuring the ranking performance of IR-based bug locating systems \cite{Huo:2017:EUF:3172077.3172153, Huo:2016:LUF:3060832.3060845, 7372035, Saha:2013:ASE:6693093, Ye:FSE14, Ye:ICSE16, Zhou:2012:BFM:2337223.2337226}.
+   \item \textit{Mean Reciprocal Rank (\textbf{MRR})}: a metric measuring the ranking performance of an IR system on the first recommendation \cite{Voorhees99thetrec-8}.
+\end{itemize}
 
-\subsection{E. Broader Impacts}
-The proposed study will result in a practical software system that alleviates develops' effort in bug finding and improves productivity. The system will be published. Any software developers can use and test it on their own projects. The system will be used in the software engineering courses at CSUSM to help students learn software engineering concepts in a lively manner. This project will expose students to an up-to-date software engineering research topic as well as some cutting-edge techniques including artificial neural networks and virtual reality.
+We use Accuracy, Precision, Recall, F1-Measure and F0.5-Measure to evaluate the bug report classification results. We use MAP and MRR to measure the IR system's ranking results.
 
-The research outcome of this project will provide the basis for the PI's future research in performing user study and collecting user feedback to evaluate the effectiveness of the system in both academic and industry. The experience learned from this project will be very helpful for PI's research in code recommendation and automatic programming. The methodology and techniques used in this project will contribute to the software engineering research community.
+\subsection{Training and Testing Procedure}
+\label{sec:training and testing procedure}
+As discussed in Section~\ref{sec:model training}, the models are trained over a maximum 500 epochs with an early stopping criterion.
 
-The PI graduated with a Ph.D. degree from Ohio University at May 2016 and joined the CS department at CSUSM as an tenure-track faculty at August 2016. The funding to the proposed study will help the PI obtain important computing resources for building a software engineering (SE) research lab at CSUSM to continue his research. This fund, which supports two student assistants, will also help the PI found an SE research group at CSUSM. The research group will work on adapting new techniques to solve SE tasks, applying up-to-date SE research outcome to assist teaching SE courses, and engaging students in doing SE research projects.
+\begin{figure}[ht]
+\begin{center}
+\fbox{\parbox{7.5cm}{
+max\_epochs = \textcolor{red}{500}\\
+patience = \textcolor{red}{10}\\
+best\_accuracy = \textcolor{red}{0}\\
+prior\_accuracy = \textcolor{red}{0}\\
+\textbf{for}(epoch = \textcolor{red}{0}; epoch \textcolor{blue}{<} max\_epoch; epoch++):\\
+\hspace*{1.5em} train the model over all the batches in one cycle\\
+\hspace*{1.5em} run the model on the validation set\\
+\hspace*{1.5em} \textbf{if} $Accuracy$ \textcolor{blue}{>} best\_accuracy:\\
+\hspace*{3.0em} best\_accuracy = $Accuracy$\\
+\hspace*{3.0em} test the model on the testing set\\
+\hspace*{3.0em} patience = \textcolor{red}{10}\\
+\hspace*{1.5em} \textbf{else if} $Accuracy$ \textcolor{blue}{>} prior\_accuracy:\\
+\hspace*{3.0em} patience = \textcolor{red}{10}\\
+\hspace*{1.5em} \textbf{else}:\\
+\hspace*{3.0em} patience = patience - \textcolor{red}{1}\\
+\hspace*{3.0em} \textbf{if} patience \textcolor{blue}{<} \textcolor{red}{0}:\\
+\hspace*{4.5em} \textbf{return} the testing results\\
+\hspace*{1.5em} prior\_accuracy = $Accuracy$\\
+test the model on the testing set\\
+\textbf{return} the testing results
+}}
+\caption{The training and testing procedure.}
+\label{fig:training procedure}
+\end{center}
+\end{figure}
 
-The funding will have a significant impact on the quality of education for students here at CSUSM. The funds requested for student assistants will allow some of our economically-disadvantaged students, may of whom work in retail and on campus dining, to have paid positions during the academic year and summer.
+Figure~\ref{fig:training procedure} shows the details of our training and testing procedure. When the models are trained over every epoch, we test the models on the validation dataset and keep track of the performance. If a continuous decrease of the validation Accuracy is observed over 10 times, we assume the models are converged and stop the training process. At the end, we report the results on the testing dataset when the models produce the best validation Accuracy.
 
-Furthermore, funding of the proposed research program will create new opportunities for our students that have strong desire to participate in research projects. The research opportunities created from the funding of the proposed research will directly contribute to providing talented undergraduates at CSUSM with the research experience necessary to be competitive applicants for top-tier Ph.D. programs.
+\subsection{Tuning the Hyperparameters}
+\label{sec:tuning parameters}
+We tune models' hyperparameters on the validation dataset using the the same procedure as shown in Figure~\ref{fig:training procedure} but without testing on the testing set.
 
-\begin{acks}
-  The authors would like to thank Dr. Yuhua Li for providing the
-  MATLAB code of the \textit{BEPS} method.
+For LSTM-network, the number of hidden units in the memory cell is set to 32, the dropout rate on the input layer is 0.9, the output dropout rate is 0.7, and the learning rate 0.003.
 
-  The authors would also like to thank the anonymous referees for
-  their valuable comments and helpful suggestions. The work is
-  supported by the \grantsponsor{GS501100001809}{National Natural
-    Science Foundation of
-    China}{http://dx.doi.org/10.13039/501100001809} under Grant
-  No.:~\grantnum{GS501100001809}{61273304}
-  and~\grantnum[http://www.nnsf.cn/youngscientists]{GS501100001809}{Young
-    Scientists' Support Program}.
+For CNN, the first convolutional layer uses eight filters with size 5x5. The second convolutional layer uses sixteen 5x5 filters. The pooling size is 2x2. The fan-out of the first fully connected layer is 512.
 
-\end{acks}
+For multilayer perceptron, all three hidden layers use 500 internal nodes.
+
+The learning rates for both CNN and perceptron are 0.001. The training batch size for these three models are all set to 64.
+
+The length thresholds of the simple baseline approach are chosen based on its performance on the validation set as well. Specifically, we set the thresholds to be 7,6,7 for the three benchmark projects respectively.
+
+\subsection{Results and Analysis}
+\label{sec:results and analysis}
+The rest of this section reports results to answer the following research questions.
+\begin{enumerate}
+  \item[\textit{RQ1:}] Can the LSTM-network approach, compared with using other classification models, helps filter out ``unpredictable'' bug reports?
+  \item[\textit{RQ2:}] Can the LSTM-network approach helps improve the ranking performance of the IR-based system on bug locating?
+  \item[\textit{RQ3:}] Can we futher increase the Precision? If so, what is the trade-of betwen Recall?
+\end{enumerate}
+
+\subsubsection{\textbf{RQ1:}}
+\label{sec:research question 1}
+\textit{Can the LSTM-network approach, compared with using other classification models, helps filter out ``unpredictable'' bug reports?}
+
+\begin{table}[ht]
+\centering
+\caption{Classification results of using difference models: MLP refers to the multilayer perceptron model, SB refers to the simple baseline approach, and NC (No Classification) refers to classifying all the instances (bug reports) as positive (``predictable'').}
+\begin{adjustbox}{width=0.47\textwidth}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|} \hline
+Project & Metric & LSTM & CNN & MLP & SB & NC\\
+& & & & & &\\ \hline
+Eclipse & Accuracy & \textbf{0.670} & 0.650 & 0.645 & 0.658 & 0.658\\
+Platform & Precision & \textbf{0.703} & 0.672 & 0.676 & 0.672 & 0.658\\
+UI & Recall & 0.862 & 0.901 & 0.884 & 0.939 & \textbf{1}\\
+& F1-Measure & 0.775 & 0.770 & 0.766 & 0.783 & \textbf{0.794}\\
+& F0.5-Measure & \textbf{0.730} & 0.708 & 0.709 & 0.712 & 0.706\\ \hline
+SWT & Accuracy & \textbf{0.694} & 0.685 & 0.692 & 0.659 & 0.692\\
+& Precision & 0.694 & 0.698 & 0.692 & \textbf{0.700} & 0.692\\
+& Recall & \textbf{1} & 0.963 & 0.884 & 0.887 & \textbf{1}\\
+& F1-Measure & \textbf{0.819} & 0.809 & 0.783 & 0.783 & 0.818\\
+& F0.5-Measure & \textbf{0.739} & 0.738 & 0.738 & 0.731 & 0.738\\ \hline
+JDT & Accuracy & \textbf{0.763} & 0.747 & 0.710 & 0.737 & 0.759\\
+& Precision & \textbf{0.762} & 0.761 & 0.758 & 0.761 & 0.759\\
+& Recall & \textbf{1} & 0.971 & 0.908 & 0.952 & \textbf{1}\\
+& F1-Measure & \textbf{0.865} & 0.853 & 0.823 & 0.846 & \textbf{0.863}\\
+& F0.5-Measure & \textbf{0.8} & 0.796 & 0.784 & 0.793 & 0.797\\ \hline
+\end{tabular}
+\end{adjustbox}
+\label{tab:classification results}
+\end{table}
+
+To answer the first research question, we run different classification models on three benchmark projects. The results are shown in Table~\ref{tab:classification results}, where each column shows the results of a model on different projects.
+
+We obtain the following observations from the results: (1) Compared with not doing bug report classificationusing, using the LSTM-network approach helps (as Precision increases) filter out ``unpredictable'' reports. (2) While the LSTM-network increases the classification precision, it drops the recall. It helps reduce false positives but also reduce true positives. (3) Using LSTM-network can increase F0.5-Measure but may decrease F1-Measure. If we consider Precision and Recall are equally important, LSTM may not help. But if we prefer precision over recall under a certain trade-off (F0.5-Measure), using LSTM-network helps. (4) Using LSTM-network achieves better classification performance than using CNN, multilayer perceptron, and the simple baseline approach. It shows that the long-term dependencies learned by LSTM is useful to decide the usefulness of a bug report to IT-based bug locating. (5) Interestingly, the simple baseline approach provides comparable performance with CNN and multilayer perceptron. One potential reason may be because the content size of a report is more important than the locality dependencies of the bug report matrix. (6) We also observe that the performane difference between LSTM and other models on SWT and JDT, compared with on Eclipse, are marginal. One potential reason may be the smaller training size and testing size. But it still produces better precisions while even keeping the same F1-Measure and better F0.5-Measure on these two projects.
+
+Overall, the LSTM-network shows better results on the three benchmark projects especially on Eclipse Platform UI. So we answer \textit{RQ1} that the LSTM-network approach helps filter out ``unpredictable'' bug reports under a certain trade-off (F0.5-Measure) between recall.
+
+\subsubsection{\textbf{RQ2:}}
+\label{sec:research question 2}
+\textit{Can the LSTM-network approach helps improve the ranking performance of the IR-based system on bug locating?}
+
+\begin{table}[ht]
+\centering
+\caption{Bug locating results: SB refers to the simple baseline approach, NC (No Classification) refers to classifying all the instances (bug reports) as positive (``predictable'').}
+\begin{adjustbox}{width=0.43\textwidth}
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+Project & Metric & LSTM & SB & NC\\
+& & & &\\ \hline
+Eclipse & MAP & \textbf{0.405} & 0.382 & 0.369\\
+Platform & MRR & \textbf{0.460} & 0.432 & 0.419\\
+UI & Recall & 0.862 & 0.939 & \textbf{1}\\
+& F0.5-Measure & \textbf{0.730} & 0.712 & 0.706\\ \hline
+SWT & MAP & 0.383 & \textbf{0.393} & 0.382\\
+& MRR & 0.444 & \textbf{0.455} & 0.443\\
+& Recall & \textbf{1} & 0.887 & \textbf{1}\\
+& F0.5-Measure & \textbf{0.739} & 0.731 & 0.738\\ \hline
+JDT & MAP & \textbf{0.430} & 0.425 & 0.425\\
+& MRR & \textbf{0.521} & 0.520 & 0.516\\
+& Recall & \textbf{1} & 0.952 & \textbf{1}\\
+& F0.5-Measure & \textbf{0.8} & 0.793 & 0.797\\ \hline
+\end{tabular}
+\end{adjustbox}
+\label{tab:ranking results}
+\end{table}
+
+To test whether our approach helps improve the IR-based system on bug locating, we apply our LSTM-based model on bug reports in the testing dataset and run the IR-beased bug locating system LRWE on only the ``predictable'' reports. Table~\ref{tab:ranking results} shows the comparison results with not doing bug report classification. We observed an obvioius performance improvement in terms of MAP and MRR over both the simple baseline approach and not doing classification on Eclipse Platform UI. For SWT the JDT, like in Table~\ref{tab:ranking results}, the advantage is not obvious. It may caused by the smaller training and testing size. We leave it to future work to collect more data and perform more fine-grained tuning of these two projects. To save time, we do not run experiments on CNN and multilayer perceptron because they do not show comparable classification performance with LSTM in the preivious section.
+
+Our answer to \textit{RQ2} is that the LSTM-network approach, under the trade-off (F0.5-Measure) between recall, helps improve the IR-based bug location system's ranking performance.
+
+\subsubsection{\textbf{RQ3:}}
+\label{sec:research question 3}
+\textit{Can we futher increase the Precision? If so, what is the trade-of between Recall?}
+
+As discussed in Section~\ref{sec:categorical distribution}, a bug report is classified to a category based on its categorical probabilities, which are computed as output by the Softmax model. That is, based on the output of Softmax, we classify a report as ``predictable'' when $P(``predictable'') > P(``unpredictable'')$ even the difference is marginal.
+
+To further increase the classification precision, instead of classifying a report to the category with larger probability, we perform classification using a fixed value as the threshold. That is, we classify a bug report as ``predictable'' if $P(``predictable'') > threshold$ and ``unpredictable'' otherwise. Our assumption is that the bigger threshold the more confidence of the model in classifying a report as ``predictable''.
+
+We run experiments using different classification models on the Eclipse Platform UI project by tuning the probability threshold from 0 to 1. For the simple baseline approach, we tune the length as the the threshold. Then we draw a learning curve for each evaluation metric. The learning curves are shown in Figure~\ref{fig:learning curve of lstm} for LSTM, Figure~\ref{fig:learning curve of cnn} for CNN, Figure~\ref{fig:learning curve of perceptron} for multilayer perceptron, and Figure~\ref{fig:learning curve of simple baseline} for the simple baseline approach.
+
+An overall observation from the results is that the precision increases when we increase the threshold, but the recall drops. When we give more preference to precision, we observe that the F0.5-Measure value also increase.
+
+More specifically, take the LSTM result shown in Figure~\ref{fig:learning curve of lstm} for example, both Precision and F0.5-Measure increase with the probability threshold. When the threshold is set to 0, which means no classifications at all, the Precision is 0.658 and the F0.5-Measure is 0.706. After we increase the threshold to 0.5, we obtain the result shown in Table~\ref{tab:classification results}, where Precision is 0.703 and F0.5-Measure is 0.73. Then we continue to increase the probability threshold. When the threshold increases to 0.8, which means that we classify a bug report as ``predictable'' only when $P(``predictable'') > 0.8$, the Precision also increases from 0.703 to 0.716, and the F0.5-Measure increases from 0.73 to 0.735.
+
+Next, to get more insights into the difference between models, we compare the changes of precision over the changes of recall in Figure~\ref{fig:precision vs recall}, from which we clearly observe that the LSTM-network (RNN) model achieves better performance in terms of Precision than other models before the Recall drops too much. We also observe that CNN gives better Precision when Recall drops below 0.5 that is too low to be useful.
+
+In summary, we answer \textit{RQ3} that we can further increase the Precision while keeping a certain trade-off (in terms of F0.5-Measure) between recall. The LSTM-network achieves the best trade-off between Precision and Recall.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.58]{figures/result_rnn1.pdf}
+\includegraphics[scale=0.58]{figures/result_rnn2.pdf}
+\caption{Learning curves for LSTM.}
+\label{fig:learning curve of lstm}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.58]{figures/result_cnn1.pdf}
+\includegraphics[scale=0.58]{figures/result_cnn2.pdf}
+\caption{Learning curves for CNN.}
+\label{fig:learning curve of cnn}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.58]{figures/result_perceptron1.pdf}
+\includegraphics[scale=0.58]{figures/result_perceptron2.pdf}
+\caption{Learning curves for multilayer perceptron.}
+\label{fig:learning curve of perceptron}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.58]{figures/result_simple1.pdf}
+\includegraphics[scale=0.58]{figures/result_simple2.pdf}
+\caption{Learning curves for the simple baseline approach.}
+\label{fig:learning curve of simple baseline}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{figures/precision_recall.pdf}
+\caption{Precision vs. Recall.}
+\label{fig:precision vs recall}
+\end{figure}
+
